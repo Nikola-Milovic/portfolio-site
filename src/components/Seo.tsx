@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 
 import { openGraph } from '@/lib/helper';
 
-// !STARTERCONF Change these default meta
+// TODO Change these default meta
 const defaultMeta = {
   title: 'Next.js + Tailwind CSS + TypeScript Starter',
   siteName: 'Next.js + Tailwind CSS + TypeScript Starter',
@@ -96,7 +96,7 @@ type Favicons = {
   type?: string;
 };
 
-// !STARTERCONF this is the default favicon, you can generate your own from https://www.favicon-generator.org/ then replace the whole /public/favicon folder
+// TODO this is the default favicon, you can generate your own from https://www.favicon-generator.org/ then replace the whole /public/favicon folder
 const favicons: Array<Favicons> = [
   {
     rel: 'apple-touch-icon',
