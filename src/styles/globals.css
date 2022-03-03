@@ -82,7 +82,7 @@
   }
 
   .hero-title {
-    font-size: clamp(2.5rem, -0.5rem + 9.33vw, 5rem);
+    font-size: clamp(2rem, -0.7rem + 9.33vw, 7rem);
     line-height: 2rem;
   }
 

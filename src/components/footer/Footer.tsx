@@ -1,4 +1,4 @@
-import UnderlineLink from '../links/UnderlineLink';
+import UnderlineLink from '../atomic/links/UnderlineLink';
 
 export const Footer = () => {
   return (

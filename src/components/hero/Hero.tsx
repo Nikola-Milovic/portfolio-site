@@ -1,18 +1,50 @@
 import React from 'react';
+import Typewriter from 'typewriter-effect';
 
 import { BackgroundParticles } from './BackgroundTsParticles';
 
 export const Hero = () => {
   return (
-    <section className='relative mt-16 h-3/4 '>
-      <div className='layout flex h-full w-full flex-col items-center justify-center'>
-        <p className='hero-title text-center font-black uppercase text-white'>
+    <section className='md:min-h-500 relative h-screen'>
+      <div className='layout flex h-full flex-col items-center justify-center'>
+        <p className='hero-title my-2 mx-3 text-center font-black uppercase text-white sm:my-3 md:my-5 lg:my-10'>
           Nikola Milovic
         </p>
-        <p className='mt-3 font-medium uppercase text-secondary md:mt-6'>
+        {/* <p className='hero-subtitle mt-3 font-medium uppercase text-secondary md:mt-6'>
           I am a fullstack engineer |
-        </p>
-        <BackgroundParticles></BackgroundParticles>
+        </p> */}
+
+        <Typewriter
+          options={{
+            wrapperClassName:
+              'font-medium uppercase text-secondary md:text-semibold md:text-xl',
+            cursorClassName: 'text-secondary',
+            strings: [`I'm a Full-stack Developer`, `I'm an avid programmer`],
+            autoStart: true,
+            loop: true,
+            delay: 120,
+            deleteSpeed: 150,
+          }}
+        />
+
+        <svg
+          xmlns='http://www.w3.org/2000/svg'
+          className='absolute bottom-5 left-1/2 h-10 w-10 -translate-x-1/2 animate-bounce cursor-pointer text-white'
+          fill='none'
+          viewBox='0 0 24 24'
+          stroke='currentColor'
+        >
+          <path
+            strokeLinecap='round'
+            strokeLinejoin='round'
+            strokeWidth='2'
+            d='M19 9l-7 7-7-7'
+          />
+        </svg>
+
+        <div className='md:min-h-500 inset -z-1 absolute flex h-full w-full flex-col items-center justify-center'>
+          <BackgroundParticles></BackgroundParticles>
+        </div>
       </div>
     </section>
   );

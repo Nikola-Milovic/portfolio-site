@@ -19,11 +19,11 @@ module.exports = {
         primary: ['Inter', ...fontFamily.sans],
       },
       colors: {
-        "bg-dark": "#0B0C10",
-        "bg": "#1F2833",
-        "primary": "#66FCF1",
-        "secondary": "#FC6671",
-        "green": "#45A29E",
+        'bg-dark': '#0B0C10',
+        bg: '#1F2833',
+        primary: '#66FCF1',
+        secondary: '#FC6671',
+        green: '#45A29E',
       },
       keyframes: {
         flicker: {

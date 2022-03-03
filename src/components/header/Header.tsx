@@ -1,9 +1,20 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 export const Header = () => {
   const [expanded, setExpanded] = useState(false);
   const isDesktop = useMediaQuery({ minWidth: '768px' });
+
+  const [top, setTop] = useState(true);
+
+  // detect whether user has scrolled the page down by 10px
+  useEffect(() => {
+    const scrollHandler = () => {
+      window.pageYOffset > 10 ? setTop(false) : setTop(true);
+    };
+    window.addEventListener('scroll', scrollHandler);
+    return () => window.removeEventListener('scroll', scrollHandler);
+  }, [top]);
 
   return (
     <nav className='fixed inset-0 z-10 h-16 w-screen border-b-4 border-primary bg-bg-dark md:border-b-0'>

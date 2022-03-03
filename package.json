@@ -1,5 +1,5 @@
 {
-  "name": "ts-nextjs-tailwind-starter",
+  "name": "nikola-milovic-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -27,7 +27,8 @@
     "react-icons": "^4.3.1",
     "react-responsive": "^9.0.0-beta.6",
     "react-tsparticles": "^1.41.5",
-    "tailwind-merge": "^1.2.0"
+    "tailwind-merge": "^1.2.0",
+    "typewriter-effect": "^2.18.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.2.1",
