@@ -73,6 +73,8 @@ const updateItemPosition = (item: any, sc: number[], depth: number) => {
 
   const itemEl = newItem.ref.current;
 
+  if (!itemEl) return;
+
   const left = (newItem.x - itemEl.offsetWidth / 2).toFixed(2);
 
   const top = (newItem.y - itemEl.offsetHeight / 2).toFixed(2);
@@ -89,7 +91,8 @@ const updateItemPosition = (item: any, sc: number[], depth: number) => {
   itemEl.style.filter = `grayscale(${(alpha - 1) * -8}) blur(${
     (alpha - 1) * -5 > 1 ? Math.floor((alpha - 1) * -8) : 0
   }px)`;
-  itemEl.style.zIndex = Math.floor(alpha * 1000);
+
+  itemEl.style.zIndex = Math.floor(alpha * 100);
 
   itemEl.style.opacity = alpha;
 

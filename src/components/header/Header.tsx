@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
+import UnstyledLink from '../atomic/links/UnstyledLink';
+
 export const Header = () => {
   const [expanded, setExpanded] = useState(false);
   const isDesktop = useMediaQuery({ minWidth: '768px' });
@@ -17,7 +19,7 @@ export const Header = () => {
   }, [top]);
 
   return (
-    <nav className='fixed inset-0 z-10 h-16 w-screen border-b-4 border-primary bg-bg-dark md:border-b-0'>
+    <nav className='fixed inset-0 z-[9999] h-16 w-screen border-b-4 border-primary bg-bg-dark md:border-b-0'>
       <div className='header-container relative flex h-full w-full flex-row items-center justify-between px-6 text-white md:px-10'>
         <div className='flex items-center gap-1'>
           <p>English</p>
@@ -61,19 +63,28 @@ export const Header = () => {
             !isDesktop && 'hidden'
           } flex flex-col items-center gap-6 md:flex-row`}
         >
-          <a className='nav-links'>home</a>
-          <a className='nav-links'>about me</a>
-          <a className='nav-links'>projects</a>
-          <a className='nav-links nav-links--underline-secondary text-lg font-medium text-secondary'>
+          <UnstyledLink href='#home' className='nav-links'>
+            home
+          </UnstyledLink>
+          <UnstyledLink href='#aboutme' className='nav-links'>
+            about me
+          </UnstyledLink>
+          <UnstyledLink href='#projects' className='nav-links'>
+            projects
+          </UnstyledLink>
+          <UnstyledLink
+            href='#home'
+            className='nav-links nav-links--underline-secondary text-lg font-medium text-secondary'
+          >
             Contact
-          </a>
+          </UnstyledLink>
         </div>
       </div>
 
       <div
         className={` ${
           !expanded && 'hidden'
-        } flex w-screen flex-col items-center justify-between space-y-4 border-b-4 border-primary bg-bg-dark py-6 text-white md:hidden`}
+        } z-10 flex w-screen flex-col items-center justify-between space-y-4 border-b-4 border-primary bg-bg-dark py-6 text-white md:hidden`}
       >
         <a className='nav-links -mt-7'>home</a>
         <a className='nav-links'>about me</a>

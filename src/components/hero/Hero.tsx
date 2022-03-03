@@ -1,11 +1,16 @@
+import clsx from 'clsx';
 import React from 'react';
 import Typewriter from 'typewriter-effect';
 
 import { BackgroundParticles } from './BackgroundTsParticles';
+import UnstyledLink from '../atomic/links/UnstyledLink';
 
 export const Hero = () => {
   return (
-    <section className='md:min-h-500 relative h-screen'>
+    <section
+      id='home'
+      className='min-h-main fade-in-start mt-20 mb-20 flex flex-col justify-center'
+    >
       <div className='layout flex h-full flex-col items-center justify-center'>
         <p className='hero-title my-2 mx-3 text-center font-black uppercase text-white sm:my-3 md:my-5 lg:my-10'>
           Nikola Milovic
@@ -17,8 +22,8 @@ export const Hero = () => {
         <Typewriter
           options={{
             wrapperClassName:
-              'font-medium uppercase text-secondary md:text-semibold md:text-xl',
-            cursorClassName: 'text-secondary',
+              'font-medium uppercase text-primary md:text-semibold md:text-xl',
+            cursorClassName: 'text-primary',
             strings: [`I'm a Full-stack Developer`, `I'm an avid programmer`],
             autoStart: true,
             loop: true,
@@ -27,24 +32,32 @@ export const Hero = () => {
           }}
         />
 
-        <svg
-          xmlns='http://www.w3.org/2000/svg'
-          className='absolute bottom-5 left-1/2 h-10 w-10 -translate-x-1/2 animate-bounce cursor-pointer text-white'
-          fill='none'
-          viewBox='0 0 24 24'
-          stroke='currentColor'
+        <UnstyledLink
+          href='#aboutme'
+          className={clsx(
+            'absolute bottom-2 left-1/2 -translate-x-1/2 md:bottom-10',
+            'cursor-pointer rounded-md transition-colors',
+            'hover:text-primary-300 focus-visible:text-primary-300'
+          )}
         >
-          <path
-            strokeLinecap='round'
-            strokeLinejoin='round'
-            strokeWidth='2'
-            d='M19 9l-7 7-7-7'
-          />
-        </svg>
-
-        <div className='md:min-h-500 inset -z-1 absolute flex h-full w-full flex-col items-center justify-center'>
-          <BackgroundParticles></BackgroundParticles>
-        </div>
+          <svg
+            xmlns='http://www.w3.org/2000/svg'
+            className='h-8 w-8 animate-bounce text-white md:h-10 md:w-10'
+            fill='none'
+            viewBox='0 0 24 24'
+            stroke='currentColor'
+          >
+            <path
+              strokeLinecap='round'
+              strokeLinejoin='round'
+              strokeWidth='2'
+              d='M19 9l-7 7-7-7'
+            />
+          </svg>
+        </UnstyledLink>
+      </div>
+      <div className='md:min-h-500 inset -z-1 pointer-events-none absolute flex h-full w-full flex-col items-center justify-center'>
+        <BackgroundParticles></BackgroundParticles>
       </div>
     </section>
   );

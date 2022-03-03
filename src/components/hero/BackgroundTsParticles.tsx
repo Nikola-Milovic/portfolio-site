@@ -5,8 +5,11 @@ export const BackgroundParticles = () => {
   return (
     <Particles
       id='tsparticles'
+      width='100%'
+      height='100%'
       className='particles-container'
       options={{
+        fullScreen: true,
         background: {
           color: {
             value: '#0B0C10',

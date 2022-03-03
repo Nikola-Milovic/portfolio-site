@@ -8,6 +8,7 @@
 import { AboutMe } from '@/components/about/Aboutme';
 import { Header } from '@/components/header/Header';
 import { Hero } from '@/components/hero/Hero';
+import { Projects } from '@/components/projects/Projects';
 import Seo from '@/components/Seo';
 
 // TODO -> Select !STARTERCONF and CMD + SHIFT + F
@@ -24,6 +25,7 @@ export default function HomePage() {
       <main>
         <Hero></Hero>
         <AboutMe></AboutMe>
+        <Projects></Projects>
       </main>
       {/* <Footer></Footer> */}
     </div>

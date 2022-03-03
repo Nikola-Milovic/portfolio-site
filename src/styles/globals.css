@@ -5,9 +5,11 @@
 :root {
   --tw-clr-primary: 102, 252, 241;
   --tw-clr-secondary: 252, 102, 113;
+  --tw-clr-background: 31, 40, 51;
 
   --clr-primary: rgb(var(--tw-clr-primary)); /* #66fcf1 */
   --clr-secondary: rgb(var(--tw-clr-secondary)); /* #FC6671 */
+  --clr-background: rgb(var(--tw-clr-background)); /* #1F2833 */
 }
 
 @layer base {
@@ -71,6 +73,38 @@
   /* Class to adjust with sticky footer */
   .min-h-main {
     @apply min-h-[calc(100vh-56px)];
+  }
+
+  /* Dividers */
+  .aboutme-top-divider {
+    @apply absolute left-0 w-full overflow-hidden;
+    top: -50px;
+    line-height: 0;
+    transform: rotate(180deg);
+  }
+  .shape-fill {
+    fill: var(--clr-background);
+  }
+  .shape-fill-secondary {
+    fill: var(--clr-secondary);
+  }
+
+  .aboutme-top-divider svg {
+    @apply relative block;
+    height: 50px;
+    width: calc(150% + 1.3px);
+  }
+
+  /** For mobile devices **/
+  @media (max-width: 767px) {
+    .aboutme-top-divider svg {
+      width: calc(150% + 1.3px);
+      height: 35px;
+    }
+
+    .aboutme-top-divider {
+      top: -34px;
+    }
   }
 
   /* Hero */
