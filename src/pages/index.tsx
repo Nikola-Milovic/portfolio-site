@@ -8,7 +8,7 @@
 import { AboutMe } from '@/components/about/Aboutme';
 import { Header } from '@/components/header/Header';
 import { Hero } from '@/components/hero/Hero';
-import { Projects } from '@/components/projects/Projects';
+import { Projects } from '@/components/projects/ProjectsSection';
 import Seo from '@/components/Seo';
 
 // TODO -> Select !STARTERCONF and CMD + SHIFT + F

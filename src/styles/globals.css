@@ -183,4 +183,15 @@
   .animated-underline:focus-visible {
     background-size: 0 2px, 100% 2px;
   }
+
+  /* Project overview */
+
+  .project-overview {
+    @apply absolute inset-0 -top-full flex h-full w-full animate-projectout flex-col
+    items-center bg-gray-700 bg-opacity-50 p-5 transition-all duration-200 ease-in-out;
+  }
+
+  .project-card:hover .project-overview {
+    @apply animate-projectin;
+  }
 }
