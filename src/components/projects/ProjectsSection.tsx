@@ -1,5 +1,11 @@
+import { FaReact } from 'react-icons/fa';
+
+import { HighlightedProject } from './HighlightedProject';
 import { ProjectItem } from './ProjectItem';
-import { TopProjectsDivider } from '../atomic/dividers/ProjectDividers';
+import {
+  BottomProjectsDivider,
+  TopProjectsDivider,
+} from '../atomic/dividers/ProjectDividers';
 
 import { ProjectPreview } from '@/types/projects';
 
@@ -10,7 +16,8 @@ export const Projects = () => {
       id: 'test1',
       name: 'Test 1',
       technologies: ['React', 'Graphql'],
-      shortDescription:
+      links: [{ icon: FaReact, link: 'google.com' }],
+      description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
       displayImage: 'https://picsum.photos/500',
     },
@@ -18,8 +25,9 @@ export const Projects = () => {
       hasPersonalPage: false,
       name: 'Test 2',
       id: 'test2',
+      links: [{ icon: FaReact, link: 'google.com' }],
       technologies: ['React', 'Graphql', 'Nodejs'],
-      shortDescription:
+      description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
       displayImage: 'https://picsum.photos/500',
     },
@@ -27,8 +35,9 @@ export const Projects = () => {
       hasPersonalPage: false,
       id: 'test3',
       name: 'Test 2',
-      technologies: ['React', 'Graphql', 'Nodejs'],
-      shortDescription:
+      links: [{ icon: FaReact, link: 'google.com' }],
+      technologies: [FaReact, 'Graphql', 'Nodejs'],
+      description:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
       displayImage: 'https://picsum.photos/500',
     },
@@ -40,11 +49,27 @@ export const Projects = () => {
       className='md:min-h-700 relative w-full bg-secondary pb-7 pt-20'
     >
       <TopProjectsDivider />
+      <BottomProjectsDivider />
 
       <div className='layout flex h-full flex-col p-4'>
-        <p className='mb-20 text-3xl font-bold text-white'>Projects</p>
+        <h1 className='mb-20 text-3xl font-bold text-white'>Projects</h1>
 
-        <div className='grid auto-rows-auto grid-cols-1 content-evenly items-stretch justify-evenly justify-items-center gap-y-6 gap-x-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3'>
+        <HighlightedProject
+          project={{
+            links: [{ icon: FaReact, link: 'google.com' }],
+            hasPersonalPage: false,
+            id: 'test1',
+            name: 'Test 1',
+            technologies: ['React', 'Graphql'],
+            description:
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+            displayImage: 'https://picsum.photos/1980',
+          }}
+        ></HighlightedProject>
+
+        <h2 className='my-10 text-center text-white'>Personal Projects</h2>
+
+        <div className='grid auto-rows-auto grid-cols-1 content-evenly items-stretch justify-evenly justify-items-center gap-5 md:grid-cols-2 lg:grid-cols-2'>
           {projects.map((proj) => (
             <ProjectItem key={proj.id} project={proj}></ProjectItem>
           ))}

@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { ProjectPreview } from '@/types/projects';
 
 interface ProjectProps {
@@ -7,23 +5,8 @@ interface ProjectProps {
 }
 
 export const ProjectItem = ({ project }: ProjectProps) => {
-  const [showingDetails, setShowingDetails] = useState(false);
-
   return (
-    <a
-      onTouchStart={() => setShowingDetails(true)}
-      onTouchEnd={() => setShowingDetails(false)}
-      onMouseEnter={() => setShowingDetails(true)}
-      onMouseLeave={() => setShowingDetails(false)}
-      onClick={() => {
-        //TODO
-        // eslint-disable-next-line no-console
-        if (showingDetails) console.debug('Go go details');
-      }}
-      className='project-card relative z-10 flex h-full w-full transform flex-col justify-between
-       overflow-hidden rounded-lg shadow-xl transition duration-200 hover:z-20 
-        hover:scale-105 hover:shadow-light sm:w-11/12 md:w-10/12'
-    >
+    <div className='project-preview-card project-preview-card--personal'>
       {/*  eslint-disable-next-line @next/next/no-img-element */}
       <img
         className='h-full w-full rounded object-cover object-center'
@@ -31,9 +14,18 @@ export const ProjectItem = ({ project }: ProjectProps) => {
         src={project.displayImage}
       ></img>
 
-      <div className='project-overview'>
+      <div className='project-preview-overview'>
         <h2 className='pb-2 text-2xl text-white'>{project.name}</h2>
+        <div className='flex flex-row gap-1'>
+          {project.technologies.map((item, index) => (
+            <span className='project-preview-technologies-badge' key={index}>
+              {item}
+            </span>
+          ))}
+        </div>
+
+        <p className='project-preview-description'>{project.description}</p>
       </div>
-    </a>
+    </div>
   );
 };

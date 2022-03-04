@@ -6,6 +6,7 @@
  * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
  */
 import { AboutMe } from '@/components/about/Aboutme';
+import { Footer } from '@/components/footer/Footer';
 import { Header } from '@/components/header/Header';
 import { Hero } from '@/components/hero/Hero';
 import { Projects } from '@/components/projects/ProjectsSection';
@@ -27,7 +28,7 @@ export default function HomePage() {
         <AboutMe></AboutMe>
         <Projects></Projects>
       </main>
-      {/* <Footer></Footer> */}
+      <Footer></Footer>
     </div>
   );
 }

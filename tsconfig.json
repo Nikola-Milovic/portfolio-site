@@ -20,7 +20,13 @@
     },
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/atomic/reactTagSphere/index.jsx", "src/components/atomic/reactTagSphere/index.jsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/components/atomic/reactTagSphere/index.jsx",
+    "src/components/atomic/reactTagSphere/index.jsx"
+  ],
   "exclude": ["node_modules"],
   "moduleResolution": ["node_modules", ".next", "node"]
 }

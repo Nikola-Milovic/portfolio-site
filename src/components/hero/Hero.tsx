@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
+import { FiChevronDown } from 'react-icons/fi';
 import Typewriter from 'typewriter-effect';
 
 import { BackgroundParticles } from './BackgroundTsParticles';
@@ -40,20 +41,7 @@ export const Hero = () => {
             'hover:text-primary-300 focus-visible:text-primary-300'
           )}
         >
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            className='h-8 w-8 animate-bounce text-white md:h-10 md:w-10'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-          >
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              strokeWidth='2'
-              d='M19 9l-7 7-7-7'
-            />
-          </svg>
+          <FiChevronDown className='h-8 w-8 animate-bounce text-white md:h-10 md:w-10' />
         </UnstyledLink>
       </div>
       <div className='md:min-h-500 inset -z-1 pointer-events-none absolute flex h-full w-full flex-col items-center justify-center'>

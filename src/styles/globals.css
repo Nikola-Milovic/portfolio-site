@@ -76,9 +76,29 @@
   }
 
   /* Dividers */
-  .aboutme-top-divider {
+
+  .top-divider-footer {
+    @apply absolute left-0 -top-[90%] w-full overflow-hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+  }
+
+  .top-divider-footer svg {
+    position: relative;
+    display: block;
+    width: calc(200% + 1.3px);
+    height: 194px;
+  }
+
+  .top-divider {
     @apply absolute left-0 w-full overflow-hidden;
     top: -50px;
+    line-height: 0;
+    transform: rotate(180deg);
+  }
+  .bottom-divider {
+    @apply absolute left-0 w-full overflow-hidden;
+    bottom: -50px;
     line-height: 0;
     transform: rotate(180deg);
   }
@@ -88,8 +108,20 @@
   .shape-fill-secondary {
     fill: var(--clr-secondary);
   }
+  .shape-fill-primary {
+    fill: var(--clr-primary);
+  }
+  .shape-fill-bg {
+    fill: var(--clr-background);
+  }
 
-  .aboutme-top-divider svg {
+  .top-divider svg {
+    @apply relative block;
+    height: 50px;
+    width: calc(150% + 1.3px);
+  }
+
+  .bottom-divider svg {
     @apply relative block;
     height: 50px;
     width: calc(150% + 1.3px);
@@ -97,13 +129,21 @@
 
   /** For mobile devices **/
   @media (max-width: 767px) {
-    .aboutme-top-divider svg {
+    .top-divider svg {
       width: calc(150% + 1.3px);
       height: 35px;
     }
 
-    .aboutme-top-divider {
+    .bottom-divider svg {
+      width: calc(150% + 1.3px);
+      height: 35px;
+    }
+
+    .top-divider {
       top: -34px;
+    }
+    .bottom-divider {
+      bottom: -34px;
     }
   }
 
@@ -186,12 +226,33 @@
 
   /* Project overview */
 
-  .project-overview {
+  .project-preview-overview {
     @apply absolute inset-0 -top-full flex h-full w-full animate-projectout flex-col
     items-center bg-gray-700 bg-opacity-50 p-5 transition-all duration-200 ease-in-out;
   }
 
-  .project-card:hover .project-overview {
+  .project-preview-card:hover .project-preview-overview {
     @apply animate-projectin;
+  }
+
+  .project-preview-card {
+    @apply relative z-10 flex w-full transform flex-col justify-between
+       overflow-hidden rounded-lg shadow-xl transition duration-200 hover:z-20 
+        hover:scale-105 hover:shadow-light;
+  }
+
+  .project-preview-card--personal {
+    @apply h-full sm:w-11/12 md:w-10/12;
+  }
+
+  .project-preview-card--highlighted {
+    @apply max-h-[36rem]  w-full shadow-xl hover:shadow-light;
+  }
+
+  .project-preview-technologies-badge {
+    @apply m-1 rounded-md bg-secondary px-2 py-1 text-white shadow-md shadow-primary;
+  }
+  .project-preview-description {
+    @apply absolute bottom-0 m-2 w-full overflow-ellipsis text-center text-white;
   }
 }

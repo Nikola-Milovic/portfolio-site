@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { FiChevronDown } from 'react-icons/fi';
+import { GiHamburgerMenu } from 'react-icons/gi';
 import { useMediaQuery } from 'react-responsive';
 
 import UnstyledLink from '../atomic/links/UnstyledLink';
@@ -23,39 +25,14 @@ export const Header = () => {
       <div className='header-container relative flex h-full w-full flex-row items-center justify-between px-6 text-white md:px-10'>
         <div className='flex items-center gap-1'>
           <p>English</p>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            className='h-4 w-4'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-          >
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              strokeWidth='2'
-              d='M19 9l-7 7-7-7'
-            />
-          </svg>
+
+          <FiChevronDown className='h-4 w-4' />
         </div>
         <p className='absolute left-1/2 -translate-x-1/2 font-semibold uppercase md:hidden'>
           Nikola Milovic
         </p>
         <div className='md:hidden' onClick={() => setExpanded(!expanded)}>
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            className='h-6 w-6'
-            fill='none'
-            viewBox='0 0 24 24'
-            stroke='currentColor'
-          >
-            <path
-              strokeLinecap='round'
-              strokeLinejoin='round'
-              strokeWidth='2'
-              d='M4 6h16M4 12h16M4 18h16'
-            />
-          </svg>
+          <GiHamburgerMenu className='h-6 w-6' />
         </div>
 
         <div

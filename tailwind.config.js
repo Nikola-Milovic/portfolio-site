@@ -17,7 +17,7 @@ module.exports = {
     extend: {
       boxShadow: {
         '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
-        'light': '0 45px 70px -15px rgba(1, 1, 1, 1)',
+        light: '0 45px 70px -15px rgba(1, 1, 1, 1)',
       },
       fontFamily: {
         primary: ['Inter', ...fontFamily.sans],

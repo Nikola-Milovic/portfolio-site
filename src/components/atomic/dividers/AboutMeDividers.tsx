@@ -1,6 +1,6 @@
 export const AboutMeTopDivider = () => {
   return (
-    <div className='aboutme-top-divider'>
+    <div className='top-divider'>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 1200 120'
