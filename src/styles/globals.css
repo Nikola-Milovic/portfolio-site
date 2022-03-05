@@ -212,6 +212,42 @@
 
 /* #endregion  /**======== Hero =========== */
 
+/* #region  /**======== Projects =========== */
+
+.project-preview-overview {
+  @apply absolute inset-0 -top-full flex h-full w-full animate-projectout flex-col
+    items-center bg-gray-700 bg-opacity-50 p-5 transition-all duration-200 ease-in-out;
+}
+
+.project-preview-card:hover .project-preview-overview {
+  @apply animate-projectin;
+}
+
+.project-preview-card {
+  @apply relative z-10 transform justify-self-center overflow-hidden rounded-lg shadow-xl transition duration-200 hover:z-20 
+        hover:scale-105 hover:shadow-light;
+}
+
+.project-preview-card--personal {
+  @apply h-full w-full;
+}
+
+.project-preview-card--highlighted {
+  @apply max-h-[36rem]  w-full shadow-xl hover:shadow-light;
+}
+
+.project-preview-technologies-badge {
+  @apply m-1 rounded-md bg-secondary px-2 py-1 text-white shadow-md shadow-primary;
+}
+.project-preview-description {
+  @apply my-auto text-center text-white;
+}
+.project-preview-description--highlighted {
+  @apply my-auto w-full max-w-3xl text-center text-white md:bottom-1/4;
+}
+
+/* #endregion  /**======== Projects =========== */
+
 @layer utilities {
   .animated-underline {
     background-image: linear-gradient(#33333300, #33333300),
@@ -234,37 +270,5 @@
   .animated-underline:hover,
   .animated-underline:focus-visible {
     background-size: 0 2px, 100% 2px;
-  }
-
-  /* Project overview */
-
-  .project-preview-overview {
-    @apply absolute inset-0 -top-full flex h-full w-full animate-projectout flex-col
-    items-center bg-gray-700 bg-opacity-50 p-5 transition-all duration-200 ease-in-out;
-  }
-
-  .project-preview-card:hover .project-preview-overview {
-    @apply animate-projectin;
-  }
-
-  .project-preview-card {
-    @apply relative z-10 flex w-full transform flex-col justify-between
-       overflow-hidden rounded-lg shadow-xl transition duration-200 hover:z-20 
-        hover:scale-105 hover:shadow-light;
-  }
-
-  .project-preview-card--personal {
-    @apply h-full sm:w-11/12 md:w-10/12;
-  }
-
-  .project-preview-card--highlighted {
-    @apply max-h-[36rem]  w-full shadow-xl hover:shadow-light;
-  }
-
-  .project-preview-technologies-badge {
-    @apply m-1 rounded-md bg-secondary px-2 py-1 text-white shadow-md shadow-primary;
-  }
-  .project-preview-description {
-    @apply absolute bottom-0 m-2 w-full overflow-ellipsis text-center text-white;
   }
 }

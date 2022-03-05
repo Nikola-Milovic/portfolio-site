@@ -1,6 +1,5 @@
 import { FaReact } from 'react-icons/fa';
 
-import { HighlightedProject } from './HighlightedProject';
 import { ProjectItem } from './ProjectItem';
 import {
   BottomProjectsDivider,
@@ -18,7 +17,7 @@ export const Projects = () => {
       technologies: ['React', 'Graphql'],
       links: [{ icon: FaReact, link: 'google.com' }],
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled",
       displayImage: 'https://picsum.photos/500',
     },
     {
@@ -28,7 +27,7 @@ export const Projects = () => {
       links: [{ icon: FaReact, link: 'google.com' }],
       technologies: ['React', 'Graphql', 'Nodejs'],
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled",
       displayImage: 'https://picsum.photos/500',
     },
     {
@@ -36,9 +35,9 @@ export const Projects = () => {
       id: 'test3',
       name: 'Test 2',
       links: [{ icon: FaReact, link: 'google.com' }],
-      technologies: [FaReact, 'Graphql', 'Nodejs'],
+      technologies: ['React', 'Graphql', 'Nodejs'],
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled",
       displayImage: 'https://picsum.photos/500',
     },
   ];
@@ -54,7 +53,7 @@ export const Projects = () => {
       <div className='layout flex h-full flex-col p-4'>
         <h1 className='section-title mb-10'>Projects</h1>
 
-        <HighlightedProject
+        <ProjectItem
           project={{
             links: [{ icon: FaReact, link: 'google.com' }],
             hasPersonalPage: false,
@@ -62,14 +61,17 @@ export const Projects = () => {
             name: 'Test 1',
             technologies: ['React', 'Graphql'],
             description:
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled",
             displayImage: 'https://picsum.photos/1980',
           }}
-        ></HighlightedProject>
+          isHighlight={true}
+        ></ProjectItem>
 
-        <h2 className='my-10 text-center text-white'>Personal Projects</h2>
+        <h2 className='mb-2 mt-10 text-center text-white md:mb-5 md:mt-16'>
+          Personal Projects
+        </h2>
 
-        <div className='grid auto-rows-auto grid-cols-1 content-evenly items-stretch justify-evenly justify-items-center gap-5 md:grid-cols-2 lg:grid-cols-2'>
+        <div className='mx-auto mt-4 grid  max-w-sm gap-4 sm:mx-0 sm:max-w-none sm:grid-cols-2 lg:gap-10'>
           {projects.map((proj) => (
             <ProjectItem key={proj.id} project={proj}></ProjectItem>
           ))}
