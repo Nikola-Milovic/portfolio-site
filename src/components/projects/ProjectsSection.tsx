@@ -52,7 +52,7 @@ export const Projects = () => {
       <BottomProjectsDivider />
 
       <div className='layout flex h-full flex-col p-4'>
-        <h1 className='mb-20 text-3xl font-bold text-white'>Projects</h1>
+        <h1 className='section-title mb-10'>Projects</h1>
 
         <HighlightedProject
           project={{

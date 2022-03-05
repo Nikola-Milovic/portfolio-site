@@ -58,6 +58,11 @@
   .p {
     @apply font-primary text-sm md:text-base;
   }
+
+  .section-title {
+    @apply text-4xl font-black uppercase text-white md:text-5xl lg:text-6xl;
+  }
+
   /* #endregion  /**======== Typography =========== */
 
   .layout {
@@ -75,19 +80,18 @@
     @apply min-h-[calc(100vh-56px)];
   }
 
-  /* Dividers */
+  /* #region  /**=========== Divider =========== */
 
   .top-divider-footer {
-    @apply absolute left-0 -top-[90%] w-full overflow-hidden;
+    @apply absolute left-0 -top-[10%] w-full overflow-hidden;
     line-height: 0;
-    transform: rotate(180deg);
   }
 
   .top-divider-footer svg {
     position: relative;
     display: block;
-    width: calc(200% + 1.3px);
-    height: 194px;
+    width: calc(100% + 1.3px);
+    height: 160px;
   }
 
   .top-divider {
@@ -145,19 +149,25 @@
     .bottom-divider {
       bottom: -34px;
     }
+
+    .top-divider-footer svg {
+      height: 100px;
+    }
   }
 
-  /* Hero */
+  /* #endregion  /**======== Dividers =========== */
+
+  /* #region  /**======== Hero =========== */
 
   /* https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/ */
-
-  .particles-container {
-    @apply absolute -z-[1] max-w-xl;
-  }
 
   .hero-title {
     font-size: clamp(2rem, -0.7rem + 9.33vw, 7rem);
     line-height: 2rem;
+  }
+
+  .particles-container {
+    @apply absolute -z-[1] max-w-xl;
   }
 
   .hero-subtitle {
@@ -199,6 +209,8 @@
     background-position: 0 100%;
   }
 }
+
+/* #endregion  /**======== Hero =========== */
 
 @layer utilities {
   .animated-underline {

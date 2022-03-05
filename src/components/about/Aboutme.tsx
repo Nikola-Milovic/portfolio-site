@@ -10,11 +10,11 @@ export const AboutMe = () => {
       <div className='layout flex h-full flex-col p-4 md:flex-row'>
         <div className='w-full p-2 text-white md:w-1/3'>
           <div className='mb-5 pb-1'>
-            <p className='text-3xl font-bold'>About me</p>
+            <p className='section-title '>About me</p>
             <div className='-mr-2 w-20 border-b-4 border-primary'></div>
           </div>
 
-          <p>
+          <p className='indent-4'>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
             congue vitae porttitor ornare sed enim vitae scelerisque sagittis.
             Tincidunt pellentesque justo tempor, mauris. Pharetra donec odio
