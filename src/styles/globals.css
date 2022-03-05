@@ -175,6 +175,17 @@
   }
 
   /* Header */
+  .desktop-nav {
+    @apply flex flex-col items-center gap-6 md:flex-row;
+  }
+
+  /** For mobile devices **/
+  @media (max-width: 767px) {
+    .desktop-nav {
+      @apply hidden;
+    }
+  }
+
   .header-container {
     max-width: 78.75rem;
     @apply mx-auto w-11/12;
@@ -216,7 +227,7 @@
 
 .project-preview-overview {
   @apply absolute inset-0 -top-full flex h-full w-full animate-projectout flex-col
-    items-center bg-gray-700 bg-opacity-50 p-5 transition-all duration-200 ease-in-out;
+    items-center bg-gray-700 bg-opacity-50 p-4 transition-all duration-200 ease-in-out md:p-6;
 }
 
 .project-preview-card:hover .project-preview-overview {
@@ -237,13 +248,15 @@
 }
 
 .project-preview-technologies-badge {
-  @apply m-1 rounded-md bg-secondary px-2 py-1 text-white shadow-md shadow-primary;
+  @apply m-1 rounded-md bg-secondary px-2 py-1 text-white
+  shadow-md shadow-primary hover:scale-105 lg:px-4 lg:py-2 lg:text-lg lg:font-semibold;
 }
+
 .project-preview-description {
-  @apply my-auto text-center text-white;
+  @apply text-center text-white line-clamp-3 xs:line-clamp-none sm:line-clamp-4  lg:line-clamp-none;
 }
 .project-preview-description--highlighted {
-  @apply my-auto w-full max-w-3xl text-center text-white md:bottom-1/4;
+  @apply text-center text-white line-clamp-3 xs:line-clamp-5 sm:line-clamp-none lg:max-w-3xl lg:line-clamp-none;
 }
 
 /* #endregion  /**======== Projects =========== */

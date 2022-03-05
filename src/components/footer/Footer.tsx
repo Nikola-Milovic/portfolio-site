@@ -61,7 +61,7 @@ export const Footer = () => {
           </div>
 
           <p className='absolute left-1/2 bottom-2 mt-20 w-full -translate-x-1/2 text-center text-white'>
-            Made with {'<3'} by Nikola Milovic, 2022-{new Date().getFullYear()}.
+            © Nikola Milovic - {new Date().getFullYear()}
           </p>
         </div>
       </footer>

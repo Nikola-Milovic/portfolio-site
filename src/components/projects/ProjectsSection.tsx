@@ -31,7 +31,7 @@ export const Projects = () => {
       displayImage: 'https://picsum.photos/500',
     },
     {
-      hasPersonalPage: false,
+      hasPersonalPage: true,
       id: 'test3',
       name: 'Test 2',
       links: [{ icon: FaReact, link: 'google.com' }],
@@ -56,7 +56,7 @@ export const Projects = () => {
         <ProjectItem
           project={{
             links: [{ icon: FaReact, link: 'google.com' }],
-            hasPersonalPage: false,
+            hasPersonalPage: true,
             id: 'test1',
             name: 'Test 1',
             technologies: ['React', 'Graphql'],

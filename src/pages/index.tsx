@@ -5,6 +5,7 @@
  * You can override the next-env if the type is important to you
  * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
  */
+
 import { AboutMe } from '@/components/about/Aboutme';
 import { Footer } from '@/components/footer/Footer';
 import { Header } from '@/components/header/Header';
@@ -21,8 +22,7 @@ export default function HomePage() {
     <div className='flex h-full flex-col overflow-auto'>
       {/* <Seo templateTitle='Home' /> */}
       <Seo />
-      <Header></Header>
-      {/*  Page content */}
+      <Header></Header>;{/*  Page content */}
       <main>
         <Hero></Hero>
         <AboutMe></AboutMe>
@@ -31,4 +31,8 @@ export default function HomePage() {
       <Footer></Footer>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  return { props: {} };
 }

@@ -1,13 +1,11 @@
+import { Squash as Hamburger } from 'hamburger-react';
 import { useEffect, useState } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
-import { GiHamburgerMenu } from 'react-icons/gi';
-import { useMediaQuery } from 'react-responsive';
 
 import UnstyledLink from '../atomic/links/UnstyledLink';
 
 export const Header = () => {
-  const [expanded, setExpanded] = useState(false);
-  const isDesktop = useMediaQuery({ minWidth: '768px' });
+  const [isExpanded, setExpanded] = useState(false);
 
   const [top, setTop] = useState(true);
 
@@ -31,15 +29,11 @@ export const Header = () => {
         <p className='absolute left-1/2 -translate-x-1/2 font-semibold uppercase md:hidden'>
           Nikola Milovic
         </p>
-        <div className='md:hidden' onClick={() => setExpanded(!expanded)}>
-          <GiHamburgerMenu className='h-6 w-6' />
+        <div className='md:hidden' onClick={() => setExpanded(!isExpanded)}>
+          <Hamburger size={24} toggled={isExpanded} toggle={setExpanded} />
         </div>
 
-        <nav
-          className={`${
-            !isDesktop && 'hidden'
-          } flex flex-col items-center gap-6 md:flex-row`}
-        >
+        <nav className='desktop-nav'>
           <UnstyledLink href='#home' className='nav-links'>
             home
           </UnstyledLink>
@@ -60,7 +54,7 @@ export const Header = () => {
 
       <nav
         className={` ${
-          !expanded && 'hidden'
+          !isExpanded && 'hidden'
         } z-10 flex w-screen flex-col items-center justify-between space-y-4 border-b-2 border-primary bg-bg-dark py-6 text-white md:hidden`}
       >
         <a className='nav-links -mt-7'>home</a>

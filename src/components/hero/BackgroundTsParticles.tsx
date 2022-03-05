@@ -15,7 +15,7 @@ export const BackgroundParticles = () => {
             value: '#0B0C10',
           },
         },
-        fpsLimit: 60,
+        fpsLimit: 30,
         interactivity: {
           events: {
             onHover: {

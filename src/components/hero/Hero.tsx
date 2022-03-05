@@ -10,7 +10,7 @@ export const Hero = () => {
   return (
     <section
       id='home'
-      className='min-h-main fade-in-start mt-20 mb-20 flex flex-col justify-center'
+      className='min-h-main fade-in-start mb-20 flex flex-col justify-center'
     >
       <div className='layout flex h-full flex-col items-center justify-center'>
         <p className='hero-title my-2 mx-3 text-center font-black uppercase text-white sm:my-3 md:my-5 lg:my-10'>
