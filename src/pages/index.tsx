@@ -7,10 +7,11 @@
  */
 
 import { AboutMe } from '@/components/about/Aboutme';
-import { Footer } from '@/components/footer/Footer';
-import { Header } from '@/components/header/Header';
-import { Hero } from '@/components/hero/Hero';
-import { Projects } from '@/components/projects/ProjectsSection';
+import { BlogSection } from '@/components/blogs/BlogSection';
+import { Hero } from '@/components/landing/hero/Hero';
+import { ProjectsSection } from '@/components/landing/projects/ProjectsSection';
+import { Footer } from '@/components/layout/footer/Footer';
+import { Header } from '@/components/layout/header/Header';
 import Seo from '@/components/Seo';
 
 // TODO -> Select !STARTERCONF and CMD + SHIFT + F
@@ -26,7 +27,8 @@ export default function HomePage() {
       <main>
         <Hero></Hero>
         <AboutMe></AboutMe>
-        <Projects></Projects>
+        <ProjectsSection></ProjectsSection>
+        <BlogSection></BlogSection>
       </main>
       <Footer></Footer>
     </div>

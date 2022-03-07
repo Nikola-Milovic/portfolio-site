@@ -2,7 +2,7 @@ import { Squash as Hamburger } from 'hamburger-react';
 import { useEffect, useState } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 
-import UnstyledLink from '../atomic/links/UnstyledLink';
+import UnstyledLink from '../../atomic/links/UnstyledLink';
 
 export const Header = () => {
   const [isExpanded, setExpanded] = useState(false);
@@ -37,6 +37,9 @@ export const Header = () => {
           <UnstyledLink href='#home' className='nav-links'>
             home
           </UnstyledLink>
+          <UnstyledLink href='/blog' className='nav-links'>
+            blog
+          </UnstyledLink>
           <UnstyledLink href='#aboutme' className='nav-links'>
             about me
           </UnstyledLink>
@@ -44,7 +47,7 @@ export const Header = () => {
             projects
           </UnstyledLink>
           <UnstyledLink
-            href='#home'
+            href='#footer'
             className='nav-links nav-links--underline-secondary text-lg font-medium text-secondary'
           >
             Contact
@@ -57,12 +60,24 @@ export const Header = () => {
           !isExpanded && 'hidden'
         } z-10 flex w-screen flex-col items-center justify-between space-y-4 border-b-2 border-primary bg-bg-dark py-6 text-white md:hidden`}
       >
-        <a className='nav-links -mt-7'>home</a>
-        <a className='nav-links'>about me</a>
-        <a className='nav-links'>projects</a>
-        <a className='nav-links nav-links--underline-secondary text-lg font-medium text-secondary'>
+        <UnstyledLink href='#home' className='nav-links'>
+          home
+        </UnstyledLink>
+        <UnstyledLink href='/blog' className='nav-links'>
+          blog
+        </UnstyledLink>
+        <UnstyledLink href='#aboutme' className='nav-links'>
+          about me
+        </UnstyledLink>
+        <UnstyledLink href='#projects' className='nav-links'>
+          projects
+        </UnstyledLink>
+        <UnstyledLink
+          href='#footer'
+          className='nav-links nav-links--underline-secondary text-lg font-medium text-secondary'
+        >
           Contact
-        </a>
+        </UnstyledLink>
       </nav>
     </header>
   );

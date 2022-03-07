@@ -4,11 +4,11 @@ import { ProjectItem } from './ProjectItem';
 import {
   BottomProjectsDivider,
   TopProjectsDivider,
-} from '../atomic/dividers/ProjectDividers';
+} from '../../atomic/dividers/ProjectDividers';
 
-import { ProjectPreview } from '@/types/projects';
+import { ProjectPreview } from '@/types/projectPreview';
 
-export const Projects = () => {
+export const ProjectsSection = () => {
   const projects: ProjectPreview[] = [
     {
       hasPersonalPage: false,
@@ -45,7 +45,7 @@ export const Projects = () => {
   return (
     <section
       id='projects'
-      className='md:min-h-700 relative w-full bg-secondary pb-7 pt-20'
+      className='md:min-h-700 relative w-full bg-secondary pb-10 pt-20 md:pb-20'
     >
       <TopProjectsDivider />
       <BottomProjectsDivider />
@@ -71,11 +71,11 @@ export const Projects = () => {
           Personal Projects
         </h2>
 
-        <div className='mx-auto mt-4 grid  max-w-sm gap-4 sm:mx-0 sm:max-w-none sm:grid-cols-2 lg:gap-10'>
+        <ul className='mx-auto mt-4 grid w-full max-w-sm gap-4 sm:mx-0 sm:max-w-none sm:grid-cols-2 lg:gap-10'>
           {projects.map((proj) => (
             <ProjectItem key={proj.id} project={proj}></ProjectItem>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

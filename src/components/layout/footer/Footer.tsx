@@ -1,7 +1,7 @@
 import { FaGithub, FaTwitter } from 'react-icons/fa';
 
-import { FooterTopDivider } from '../atomic/dividers/FooterDividers';
-import { SocialIcon } from '../atomic/social/SocialIcon';
+import { FooterTopDivider } from '../../atomic/dividers/FooterDividers';
+import { SocialIcon } from '../../atomic/social/SocialIcon';
 
 export const Footer = () => {
   return (
@@ -9,7 +9,7 @@ export const Footer = () => {
       <div id='seperator' className='h-[24rem] w-full md:h-[36rem]'></div>
 
       <footer
-        id='projects'
+        id='footer'
         className='md:min-h-700 relative z-10 w-full bg-bg pt-10 md:pt-20'
       >
         <FooterTopDivider />

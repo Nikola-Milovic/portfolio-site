@@ -17,7 +17,7 @@ export const TopProjectsDivider = () => {
 
 export const BottomProjectsDivider = () => {
   return (
-    <div className='bottom-divider'>
+    <div className='bottom-divider z-10'>
       <svg
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 1200 120'

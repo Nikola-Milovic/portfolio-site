@@ -1,27 +1,31 @@
+import { ComponentPropsWithoutRef } from 'react';
 import { FaArrowRight } from 'react-icons/fa';
 
-import { ProjectPreview } from '@/types/projects';
+import NextImage from '../../atomic/images/NextImage';
 
-interface ProjectProps {
+import { ProjectPreview } from '@/types/projectPreview';
+
+type ProjectProps = {
   project: ProjectPreview;
   isHighlight?: boolean;
-}
+} & ComponentPropsWithoutRef<'li'>;
 
 export const ProjectItem = ({ project, isHighlight }: ProjectProps) => {
   return (
-    <div
+    <li
       className={`project-preview-card ${
         isHighlight
           ? ' project-preview-card--highlighted'
           : ' project-preview-card--personal '
       }`}
     >
-      {/*  eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        className='h-full w-full rounded object-cover object-center'
-        alt={'Preview image for project ' + project.name}
+      <NextImage
+        className='pointer-events-none w-full overflow-hidden rounded-t-md lg:rounded-t-lg'
         src={project.displayImage}
-      ></img>
+        alt={'Preview image for project ' + project.name}
+        width={1200}
+        height={1200}
+      />
 
       <div className='project-preview-overview'>
         <h2 className='pb-2 text-2xl text-white'>{project.name}</h2>
@@ -66,6 +70,6 @@ export const ProjectItem = ({ project, isHighlight }: ProjectProps) => {
           )}
         </div>
       </div>
-    </div>
+    </li>
   );
 };

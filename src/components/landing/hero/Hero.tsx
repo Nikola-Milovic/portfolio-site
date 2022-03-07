@@ -4,7 +4,7 @@ import { FiChevronDown } from 'react-icons/fi';
 import Typewriter from 'typewriter-effect';
 
 import { BackgroundParticles } from './BackgroundTsParticles';
-import UnstyledLink from '../atomic/links/UnstyledLink';
+import UnstyledLink from '../../atomic/links/UnstyledLink';
 
 export const Hero = () => {
   return (
