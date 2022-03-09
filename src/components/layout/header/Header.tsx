@@ -1,6 +1,5 @@
 import { Squash as Hamburger } from 'hamburger-react';
 import { useEffect, useState } from 'react';
-import { FiChevronDown } from 'react-icons/fi';
 
 import UnstyledLink from '../../atomic/links/UnstyledLink';
 
@@ -20,12 +19,7 @@ export const Header = () => {
 
   return (
     <header className='fixed inset-0 z-[9999] h-16 w-screen border-b-2 border-primary bg-bg-dark md:border-b-0'>
-      <div className='header-container relative flex h-full w-full flex-row items-center justify-between px-6 text-white md:px-10'>
-        <div className='flex items-center gap-1'>
-          <p>English</p>
-
-          <FiChevronDown className='h-4 w-4' />
-        </div>
+      <div className='header-container relative flex h-full w-full flex-row items-center justify-end  px-6 text-white md:px-10'>
         <p className='absolute left-1/2 -translate-x-1/2 font-semibold uppercase md:hidden'>
           Nikola Milovic
         </p>
@@ -34,16 +28,13 @@ export const Header = () => {
         </div>
 
         <nav className='desktop-nav'>
-          <UnstyledLink href='#home' className='nav-links'>
+          <UnstyledLink href='/#home' className='nav-links'>
             home
           </UnstyledLink>
           <UnstyledLink href='/blog' className='nav-links'>
             blog
           </UnstyledLink>
-          <UnstyledLink href='#aboutme' className='nav-links'>
-            about me
-          </UnstyledLink>
-          <UnstyledLink href='#projects' className='nav-links'>
+          <UnstyledLink href='/projects' className='nav-links'>
             projects
           </UnstyledLink>
           <UnstyledLink
@@ -60,16 +51,13 @@ export const Header = () => {
           !isExpanded && 'hidden'
         } z-10 flex w-screen flex-col items-center justify-between space-y-4 border-b-2 border-primary bg-bg-dark py-6 text-white md:hidden`}
       >
-        <UnstyledLink href='#home' className='nav-links'>
+        <UnstyledLink href='/#home' className='nav-links'>
           home
         </UnstyledLink>
         <UnstyledLink href='/blog' className='nav-links'>
           blog
         </UnstyledLink>
-        <UnstyledLink href='#aboutme' className='nav-links'>
-          about me
-        </UnstyledLink>
-        <UnstyledLink href='#projects' className='nav-links'>
+        <UnstyledLink href='/projects' className='nav-links'>
           projects
         </UnstyledLink>
         <UnstyledLink

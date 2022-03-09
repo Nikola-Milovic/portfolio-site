@@ -1,6 +1,6 @@
-import { AboutMeTopDivider } from '../atomic/dividers/AboutMeDividers';
-import TagSphere from '../atomic/reactTagSphere';
-import { TextSwap } from '../atomic/textTransition';
+import { AboutMeTopDivider } from '../../atomic/dividers/AboutMeDividers';
+import TagSphere from '../../atomic/reactTagSphere';
+import { TextSwap } from '../../atomic/textTransition';
 
 export const AboutMe = () => {
   return (
@@ -26,14 +26,12 @@ export const AboutMe = () => {
             Est aene
           </p>
 
-          <div className='my-7 flex flex-row items-center gap-2 text-xl'>
-            <p>I am proficient in {'  '} </p>
-            <TextSwap
-              interval={300}
-              textClasses='font-semibold text-primary'
-              texts={['Text1', 'Text2', 'text3']}
-            ></TextSwap>
-          </div>
+          <TextSwap
+            text='I am experienced with'
+            interval={300}
+            textClasses='font-semibold text-primary'
+            texts={['Text1', 'Text2', 'text3']}
+          ></TextSwap>
         </div>
 
         <TagSphere

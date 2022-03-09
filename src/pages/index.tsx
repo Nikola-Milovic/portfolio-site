@@ -6,35 +6,48 @@
  * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
  */
 
-import { AboutMe } from '@/components/about/Aboutme';
-import { BlogSection } from '@/components/blogs/BlogSection';
+import { getPosts, getProjects } from '@/lib/mdx/helpers';
+
+import { AboutMe } from '@/components/landing/about/Aboutme';
+import { BlogSection } from '@/components/landing/blogs/BlogSection';
 import { Hero } from '@/components/landing/hero/Hero';
 import { ProjectsSection } from '@/components/landing/projects/ProjectsSection';
-import { Footer } from '@/components/layout/footer/Footer';
-import { Header } from '@/components/layout/header/Header';
+import { Layout } from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
+
+import { PostFrontMatter, ProjectFrontMatter } from '@/types/frontmatter';
 
 // TODO -> Select !STARTERCONF and CMD + SHIFT + F
 // Before you begin editing, follow all comments with `STARTERCONF`,
 // to customize the default configuration.
 
-export default function HomePage() {
+type HomePageProps = {
+  projects: ProjectFrontMatter[];
+  posts: PostFrontMatter[];
+};
+
+export default function HomePage({ projects, posts }: HomePageProps) {
   return (
-    <div className='flex h-full flex-col overflow-auto'>
-      {/* <Seo templateTitle='Home' /> */}
+    <Layout>
       <Seo />
-      <Header></Header>;{/*  Page content */}
+      {/* <Seo templateTitle='Home' /> */}
       <main>
         <Hero></Hero>
         <AboutMe></AboutMe>
-        <ProjectsSection></ProjectsSection>
-        <BlogSection></BlogSection>
+        <ProjectsSection projects={projects}></ProjectsSection>
+        <BlogSection posts={posts}></BlogSection>
       </main>
-      <Footer></Footer>
-    </div>
+    </Layout>
   );
 }
 
 export async function getStaticProps() {
-  return { props: {} };
+  const projects = await getProjects();
+  const posts = await getPosts();
+  return {
+    props: {
+      projects,
+      posts,
+    },
+  };
 }

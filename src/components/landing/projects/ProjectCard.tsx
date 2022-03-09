@@ -1,16 +1,16 @@
 import { ComponentPropsWithoutRef } from 'react';
-import { FaArrowRight } from 'react-icons/fa';
+import { FaArrowRight, FaGithub } from 'react-icons/fa';
 
 import NextImage from '../../atomic/images/NextImage';
 
-import { ProjectPreview } from '@/types/projectPreview';
+import { ProjectFrontMatter } from '@/types/frontmatter';
 
-type ProjectProps = {
-  project: ProjectPreview;
+type ProjectCardProps = {
+  project: ProjectFrontMatter;
   isHighlight?: boolean;
 } & ComponentPropsWithoutRef<'li'>;
 
-export const ProjectItem = ({ project, isHighlight }: ProjectProps) => {
+export const ProjectCard = ({ project, isHighlight }: ProjectCardProps) => {
   return (
     <li
       className={`project-preview-card ${
@@ -39,17 +39,14 @@ export const ProjectItem = ({ project, isHighlight }: ProjectProps) => {
           </div>
 
           <div className='flex flex-row gap-1 py-4'>
-            {project.links.map((item) => (
-              <a
-                className='rounded-md bg-secondary p-2 hover:scale-105 hover:shadow-lg hover:shadow-primary lg:rounded-lg'
-                href={item.link}
-                target='_blank'
-                rel='noreferrer'
-                key={item.link}
-              >
-                <item.icon className='h-7 w-7 font-semibold text-white md:h-12 md:w-12 lg:h-14 lg:w-14'></item.icon>
-              </a>
-            ))}
+            <a
+              className='rounded-md bg-secondary p-2 hover:scale-105 hover:shadow-lg hover:shadow-primary lg:rounded-lg'
+              href={project.github}
+              target='_blank'
+              rel='noreferrer'
+            >
+              <FaGithub className='h-7 w-7 font-semibold text-white md:h-12 md:w-12 lg:h-14 lg:w-14'></FaGithub>
+            </a>
           </div>
 
           <p
@@ -62,12 +59,13 @@ export const ProjectItem = ({ project, isHighlight }: ProjectProps) => {
             {project.description}
           </p>
 
-          {project.hasPersonalPage && (
-            <a className='group flex cursor-pointer items-center gap-1 font-semibold uppercase text-white hover:scale-105'>
-              more info
-              <FaArrowRight className='transform transition group-hover:translate-x-1' />
-            </a>
-          )}
+          <a
+            href={'/projects/' + project.slug}
+            className='group flex cursor-pointer items-center gap-1 font-semibold uppercase text-white hover:scale-105'
+          >
+            more info
+            <FaArrowRight className='transform transition group-hover:translate-x-1' />
+          </a>
         </div>
       </div>
     </li>
