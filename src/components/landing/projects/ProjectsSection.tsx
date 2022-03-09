@@ -1,3 +1,12 @@
+import { motion } from 'framer-motion';
+
+import {
+  fadeIn,
+  fadeSlideX,
+  fadeSlideY,
+  whileInViewAnim,
+} from '@/components/atomic/animations/animationProps';
+
 import { ProjectCard } from './ProjectCard';
 import {
   BottomProjectsDivider,
@@ -20,13 +29,21 @@ export const ProjectsSection = ({ projects }: ProjectSectionProps) => {
       <BottomProjectsDivider />
 
       <div className='layout flex h-full flex-col p-4'>
-        <h1 className='section-title mb-10'>Projects</h1>
+        <motion.h1
+          {...whileInViewAnim}
+          {...fadeSlideX(30)}
+          className='section-title mb-10'
+        >
+          Projects
+        </motion.h1>
 
         <ul className='flex w-full flex-col'>
           {projects
             .filter((proj) => proj.personal != true)
             .map((proj) => (
               <ProjectCard
+                {...whileInViewAnim}
+                {...fadeIn}
                 key={proj.slug}
                 project={proj}
                 isHighlight={true}
@@ -42,7 +59,12 @@ export const ProjectsSection = ({ projects }: ProjectSectionProps) => {
           {projects
             .filter((proj) => proj.personal == true)
             .map((proj) => (
-              <ProjectCard key={proj.slug} project={proj}></ProjectCard>
+              <ProjectCard
+                {...whileInViewAnim}
+                {...fadeSlideY(20)}
+                key={proj.slug}
+                project={proj}
+              ></ProjectCard>
             ))}
         </ul>
       </div>

@@ -18,7 +18,7 @@ export const Header = () => {
   }, [top]);
 
   return (
-    <header className='fixed inset-0 z-[9999] h-16 w-screen border-b-2 border-primary bg-bg-dark md:border-b-0'>
+    <header className='fixed inset-0 z-[9999] h-16 w-screen border-b-2 border-primary bg-bg-dark shadow-md shadow-primary md:border-b-0'>
       <div className='header-container relative flex h-full w-full flex-row items-center justify-end  px-6 text-white md:px-10'>
         <p className='absolute left-1/2 -translate-x-1/2 font-semibold uppercase md:hidden'>
           Nikola Milovic

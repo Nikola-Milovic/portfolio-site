@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { useCallback, useEffect, useState } from 'react';
 
 type TextSwapProps = {
@@ -12,6 +13,7 @@ export const TextSwap = ({
   interval,
   textClasses,
   text,
+  ...rest
 }: TextSwapProps) => {
   const [currentWord, setCurrentWord] = useState(texts[0]);
 
@@ -26,8 +28,8 @@ export const TextSwap = ({
   }, [shuffle, interval]);
 
   return (
-    <p className='mt-8 text-xl font-semibold'>
+    <motion.p className='mt-8 text-xl font-semibold' {...rest}>
       {text} <span className={textClasses}>{currentWord}</span>
-    </p>
+    </motion.p>
   );
 };

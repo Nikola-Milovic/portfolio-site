@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef } from 'react';
+import { HTMLMotionProps, motion } from 'framer-motion';
 import { FaArrowRight, FaGithub } from 'react-icons/fa';
 
 import NextImage from '../../atomic/images/NextImage';
@@ -8,11 +8,16 @@ import { ProjectFrontMatter } from '@/types/frontmatter';
 type ProjectCardProps = {
   project: ProjectFrontMatter;
   isHighlight?: boolean;
-} & ComponentPropsWithoutRef<'li'>;
+} & HTMLMotionProps<'li'>;
 
-export const ProjectCard = ({ project, isHighlight }: ProjectCardProps) => {
+export const ProjectCard = ({
+  project,
+  isHighlight,
+  ...rest
+}: ProjectCardProps) => {
   return (
-    <li
+    <motion.li
+      {...rest}
       className={`project-preview-card ${
         isHighlight
           ? ' project-preview-card--highlighted'
@@ -68,6 +73,6 @@ export const ProjectCard = ({ project, isHighlight }: ProjectCardProps) => {
           </a>
         </div>
       </div>
-    </li>
+    </motion.li>
   );
 };

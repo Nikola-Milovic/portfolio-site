@@ -1,21 +1,24 @@
 //import { FaArrowRight } from 'react-icons/fa';
 
 import { format } from 'date-fns';
-import { ComponentPropsWithoutRef } from 'react';
+import { HTMLMotionProps } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FaClock } from 'react-icons/fa';
 
 import NextImage from '../../atomic/images/NextImage';
 import UnstyledLink from '../../atomic/links/UnstyledLink';
 
 import { PostFrontMatter } from '@/types/frontmatter';
-
 type BlogCardProps = {
   post: PostFrontMatter;
-} & ComponentPropsWithoutRef<'li'>;
+} & HTMLMotionProps<'li'>;
 
-export const PostCard = ({ post }: BlogCardProps) => {
+export const PostCard = ({ post, ...rest }: BlogCardProps) => {
   return (
-    <li className='w-full scale-100 rounded-md bg-secondary shadow-xl hover:scale-[1.02] hover:shadow-primary lg:rounded-lg'>
+    <motion.li
+      {...rest}
+      className='w-full scale-100 rounded-md bg-secondary shadow-xl hover:scale-[1.02] hover:shadow-primary lg:rounded-lg'
+    >
       <UnstyledLink
         className='flex h-full flex-col rounded-md'
         href={`/blog/${post.slug}`}
@@ -58,6 +61,6 @@ export const PostCard = ({ post }: BlogCardProps) => {
           <p className='text-sm text-white'>{post.description}</p>
         </div>
       </UnstyledLink>
-    </li>
+    </motion.li>
   );
 };

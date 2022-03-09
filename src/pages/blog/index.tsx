@@ -24,7 +24,7 @@ export default function BlogPage({ posts }: BlogPageProps) {
             programming and fitness.
           </h3>
 
-          <ul className='mx-auto mt-4 grid w-full max-w-sm gap-4 sm:mx-0 sm:max-w-none sm:grid-cols-2 lg:gap-10'>
+          <ul className='mx-auto mt-4 grid w-full max-w-sm gap-4 sm:mx-0 sm:max-w-none sm:grid-cols-2 lg:grid-cols-3 lg:gap-10'>
             {posts.map((post) => (
               <PostCard key={post.slug} post={post}></PostCard>
             ))}
