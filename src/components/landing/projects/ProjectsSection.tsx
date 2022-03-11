@@ -2,10 +2,10 @@ import { motion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
 
 import {
-  fadeIn,
   fadeSlideX,
   fadeSlideY,
   onHoverAnim,
+  staggerAnimParent,
   whileInViewAnim,
 } from '@/components/atomic/animations/animationProps';
 import UnstyledLink from '@/components/atomic/links/UnstyledLink';
@@ -46,7 +46,7 @@ export const ProjectsSection = ({ projects }: ProjectSectionProps) => {
             .map((proj) => (
               <ProjectCard
                 {...whileInViewAnim}
-                {...fadeIn}
+                {...fadeSlideX(10, true, 0.7, 0.2)}
                 key={proj.slug}
                 project={proj}
                 isHighlight={true}
@@ -58,25 +58,27 @@ export const ProjectsSection = ({ projects }: ProjectSectionProps) => {
           Personal Projects
         </h2>
 
-        <ul className='mx-auto mt-4 grid w-full max-w-sm gap-4 sm:mx-0 sm:max-w-none sm:grid-cols-2 lg:gap-10'>
+        <motion.ul
+          {...staggerAnimParent(0.4, 0.3)}
+          className='mx-auto mt-4 grid w-full max-w-sm gap-4 sm:mx-0 sm:max-w-none sm:grid-cols-2 lg:gap-10'
+        >
           {projects
             .filter((proj) => proj.personal == true)
             .map((proj) => (
               <ProjectCard
-                {...whileInViewAnim}
                 {...fadeSlideY(20)}
                 key={proj.slug}
                 project={proj}
               ></ProjectCard>
             ))}
-        </ul>
+        </motion.ul>
 
         <UnstyledLink
           {...whileInViewAnim}
           {...onHoverAnim(1.03)}
-          {...fadeSlideX(20, undefined, 0.5, 0.8)}
+          {...fadeSlideX(30, undefined, 0.7, 0.3)}
           href='/projects'
-          className='see-more-button  group border-primary text-primary  hover:bg-primary hover:text-secondary'
+          className='see-more-button group border-primary text-primary  hover:bg-primary hover:text-secondary'
         >
           See more
           <FaArrowRight className='transform transition group-hover:translate-x-2'></FaArrowRight>

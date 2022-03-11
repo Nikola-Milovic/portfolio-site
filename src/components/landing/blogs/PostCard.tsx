@@ -31,8 +31,8 @@ export const PostCard = ({ post, ...rest }: BlogCardProps) => {
             className='pointer-events-none w-full overflow-hidden rounded-t-md lg:rounded-t-lg'
             publicId={post.displayImage}
             alt={'Image preview for post titled' + post.title}
-            width={360}
-            height={(360 * 3) / 5}
+            width={460}
+            height={(460 * 3) / 5}
           />
           <div className='absolute bottom-0 mt-2 flex w-full flex-wrap justify-end gap-y-1 gap-x-2 px-4 py-2 text-sm text-white'>
             {post.keywords.map((keyword) => (

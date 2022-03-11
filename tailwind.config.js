@@ -1,27 +1,19 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { fontFamily, screens } = require('tailwindcss/defaultTheme');
 
-function withOpacityValue(variable) {
-  return ({ opacityValue }) => {
-    if (opacityValue === undefined) {
-      return `rgb(var(${variable}))`;
-    }
-    return `rgb(var(${variable}) / ${opacityValue})`;
-  };
-}
-
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     screens: {
-      xs: '375px',
+      xs: '385px',
       ...screens,
     },
     extend: {
       boxShadow: {
         '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
-        light: '0 45px 70px -15px rgba(1, 1, 1, 1)',
+        light: '0 35px 60px -13px rgba(1, 1, 1, 1)',
+        heavy: '0 45px 70px -15px rgba(1, 1, 1, 1)',
       },
       fontFamily: {
         primary: ['Inter', ...fontFamily.sans],

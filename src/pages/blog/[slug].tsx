@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
 import { FaClock } from 'react-icons/fa';
 
 import { getFileBySlugAndType, getFiles } from '@/lib/mdx/helpers';
@@ -9,6 +10,8 @@ import { Layout } from '@/components/layout/Layout';
 import { useMdxComponent } from '@/components/mdx/MDXComponents';
 import Seo from '@/components/Seo';
 
+import NotFoundPage from '../404';
+
 import { PostFrontMatter } from '@/types/frontmatter';
 
 type PostPageProps = {
@@ -17,7 +20,13 @@ type PostPageProps = {
 };
 
 export default function PostPage({ frontmatter, code }: PostPageProps) {
+  const router = useRouter();
+
   const Component = useMdxComponent(code);
+
+  if (!router.isFallback && !frontmatter && !code) {
+    return <NotFoundPage />;
+  }
 
   return (
     <Layout>

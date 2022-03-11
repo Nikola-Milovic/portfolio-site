@@ -37,7 +37,7 @@ export const ProjectCard = ({
 
       <div className='project-preview-overview'>
         <h2
-          className={`pb-2 text-2xl text-white ${
+          className={`pb-2 text-center text-lg text-white md:text-xl ${
             isHighlight && 'md:text-3xl lg:text-5xl'
           }`}
         >
@@ -55,22 +55,34 @@ export const ProjectCard = ({
           <div className='flex flex-row gap-1 py-4'>
             {project.github && (
               <a
-                className='rounded-md bg-secondary p-2 hover:scale-105 hover:shadow-lg hover:shadow-primary lg:rounded-lg'
+                className='project-preview-overview__social-link'
                 href={project.github}
                 target='_blank'
                 rel='noreferrer'
               >
-                <FaGithub className='h-7 w-7 font-semibold text-white md:h-12 md:w-12 lg:h-14 lg:w-14'></FaGithub>
+                <FaGithub
+                  className={`${
+                    isHighlight
+                      ? 'project-preview-overview__social-icon--highlighted'
+                      : 'project-preview-overview__social-icon'
+                  }`}
+                />
               </a>
             )}
             {project.webpage && (
               <a
-                className='rounded-md bg-secondary p-2 hover:scale-105 hover:shadow-lg hover:shadow-primary lg:rounded-lg'
+                className='project-preview-overview__social-link '
                 href={project.webpage}
                 target='_blank'
                 rel='noreferrer'
               >
-                <FaExternalLinkAlt className='h-7 w-7 p-3 font-semibold text-white md:h-12 md:w-12 lg:h-14 lg:w-14'></FaExternalLinkAlt>
+                <FaExternalLinkAlt
+                  className={`${
+                    isHighlight
+                      ? 'project-preview-overview__social-icon--highlighted'
+                      : 'project-preview-overview__social-icon'
+                  }`}
+                />
               </a>
             )}
           </div>

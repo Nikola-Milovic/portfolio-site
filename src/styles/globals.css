@@ -64,8 +64,8 @@
   }
 
   .see-more-button {
-    @apply mt-10 flex max-w-fit items-center justify-center gap-2 rounded-md border-2
-     p-4 text-lg font-medium transition hover:font-semibold md:ml-10 md:max-w-xs;
+    @apply mt-10 flex max-w-fit flex-row items-center justify-center gap-2 rounded-md border-2
+     p-4 text-lg font-medium hover:font-semibold md:ml-10 md:max-w-xs;
   }
 
   /* #endregion  /**======== Typography =========== */
@@ -245,7 +245,7 @@
 
 .project-preview-overview {
   @apply absolute inset-0 -top-full flex h-full w-full animate-projectout flex-col
-    items-center bg-gray-700 bg-opacity-50 p-4 transition-all duration-200 ease-in-out md:p-6;
+    items-center bg-gray-700 bg-opacity-70 p-4 transition-shadow duration-200 ease-in-out md:p-6;
 }
 
 .project-preview-card:hover .project-preview-overview {
@@ -253,8 +253,7 @@
 }
 
 .project-preview-card {
-  @apply relative z-10 w-full transform list-none justify-self-center overflow-hidden rounded-lg shadow-xl transition duration-200 hover:z-20 
-        hover:scale-105 hover:shadow-light;
+  @apply relative z-10 w-full list-none justify-self-center  overflow-hidden rounded-l shadow-xl transition-shadow duration-200 hover:z-20 hover:shadow-light lg:hover:shadow-heavy;
 }
 
 .project-preview-card--personal {
@@ -271,10 +270,22 @@
 }
 
 .project-preview-description {
-  @apply text-center text-white line-clamp-3 xs:line-clamp-none sm:line-clamp-4  lg:line-clamp-none;
+  @apply text-center text-white line-clamp-3 xs:line-clamp-none sm:line-clamp-3  lg:line-clamp-none;
 }
 .project-preview-description--highlighted {
   @apply text-center text-white line-clamp-3 xs:line-clamp-5 sm:line-clamp-none lg:max-w-3xl lg:line-clamp-none;
+}
+
+.project-preview-overview__social-icon--highlighted {
+  @apply h-10 w-10 p-1 font-semibold text-white sm:h-12 sm:w-12 md:h-12 md:w-12  lg:h-14 lg:w-14;
+}
+
+.project-preview-overview__social-icon {
+  @apply h-12 w-12 font-semibold text-white sm:h-7 sm:w-7 md:h-10 md:w-10 lg:h-12 lg:w-12;
+}
+
+.project-preview-overview__social-link {
+  @apply rounded-md bg-secondary p-2 hover:scale-105 hover:shadow-lg hover:shadow-primary lg:rounded-lg;
 }
 
 /* #endregion  /**======== Projects =========== */

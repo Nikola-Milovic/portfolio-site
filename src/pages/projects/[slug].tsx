@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { useRouter } from 'next/router';
 import { FaGithub } from 'react-icons/fa';
 
 import { getFileBySlugAndType, getFiles } from '@/lib/mdx/helpers';
@@ -8,6 +9,8 @@ import CustomLink from '@/components/atomic/links/CustomLink';
 import { Layout } from '@/components/layout/Layout';
 import { useMdxComponent } from '@/components/mdx/MDXComponents';
 import Seo from '@/components/Seo';
+
+import NotFoundPage from '../404';
 
 import { ProjectFrontMatter } from '@/types/frontmatter';
 
@@ -20,7 +23,12 @@ export default function SingleProjectPage({
   frontmatter,
   code,
 }: SingleProjectPageProps) {
+  const router = useRouter();
   const Component = useMdxComponent(code);
+
+  if (!router.isFallback && !frontmatter && !code) {
+    return <NotFoundPage />;
+  }
 
   return (
     <Layout>

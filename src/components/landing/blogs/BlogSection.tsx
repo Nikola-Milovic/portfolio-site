@@ -5,6 +5,7 @@ import {
   fadeSlideX,
   fadeSlideY,
   onHoverAnim,
+  staggerAnimParent,
   whileInViewAnim,
 } from '@/components/atomic/animations/animationProps';
 import UnstyledLink from '@/components/atomic/links/UnstyledLink';
@@ -33,21 +34,23 @@ export const BlogSection = ({ posts }: BlogSectionProps) => {
             Blogs
           </motion.h1>
 
-          <ul className='mx-auto mt-4 grid max-w-sm gap-4 sm:mx-0 sm:max-w-none sm:grid-cols-2 lg:grid-cols-3 lg:gap-10'>
+          <motion.ul
+            {...staggerAnimParent(0.4, 0.3)}
+            className='mx-auto mt-4 grid max-w-sm gap-4 sm:mx-0 sm:max-w-none sm:grid-cols-2 lg:grid-cols-3 lg:gap-10'
+          >
             {posts.map((post) => (
               <PostCard
-                {...whileInViewAnim}
                 {...fadeSlideY(20)}
                 key={post.slug}
                 post={post}
               ></PostCard>
             ))}
-          </ul>
+          </motion.ul>
 
           <UnstyledLink
             {...whileInViewAnim}
             {...onHoverAnim(1.03)}
-            {...fadeSlideX(40, undefined, 0.8, 0.2)}
+            {...fadeSlideX(30, undefined, 0.7, 0.3)}
             href='/projects'
             className='see-more-button group border-secondary  text-secondary hover:bg-secondary hover:text-primary'
           >
