@@ -1,6 +1,5 @@
-// import mdx from '@next/mdx';
-// import remarkFrontmatter from 'remark-frontmatter';
-// import remarkGfm from 'remark-gfm';
+import remarkFrontmatter from 'remark-frontmatter';
+import remarkGfm from 'remark-gfm';
 
 /** @type {import('next').NextConfig} */
 const config = {
@@ -33,19 +32,20 @@ const config = {
         },
       ],
     });
-    // config.module.rules.push({
-    //   test: /\.mdx?$/,
-    //   use: [
-    //     options.defaultLoaders.babel,
-    //     {
-    //       loader: '@mdx-js/loader',
-    //       options: {
-    //         //  providerImportSource: '@mdx-js/react',
-    //         remarkPlugins: [remarkFrontmatter, remarkGfm],
-    //       },
-    //     },
-    //   ],
-    // });
+
+    config.module.rules.push({
+      test: /\.mdx?$/,
+      use: [
+        options.defaultLoaders.babel,
+        {
+          loader: '@mdx-js/loader',
+          options: {
+            //  providerImportSource: '@mdx-js/react',
+            remarkPlugins: [remarkFrontmatter, remarkGfm],
+          },
+        },
+      ],
+    });
 
     return config;
   },

@@ -3,12 +3,14 @@ import Image from 'next/image';
 import { useMemo } from 'react';
 import YouTubeEmbed from 'react-youtube';
 
+import CloudinaryImg from '@/components/atomic/images/CloudinaryImg';
 import CustomLink from '@/components/atomic/links/CustomLink';
 
 const mdxComponents = {
   a: CustomLink,
   Image,
   YouTubeEmbed,
+  CloudinaryImg,
 };
 
 /**

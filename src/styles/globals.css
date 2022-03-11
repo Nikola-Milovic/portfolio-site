@@ -63,6 +63,11 @@
     @apply text-4xl font-black uppercase text-white md:text-5xl lg:text-6xl;
   }
 
+  .see-more-button {
+    @apply mt-10 flex max-w-fit items-center justify-center gap-2 rounded-md border-2
+     p-4 text-lg font-medium transition hover:font-semibold md:ml-10 md:max-w-xs;
+  }
+
   /* #endregion  /**======== Typography =========== */
 
   .layout {

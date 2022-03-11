@@ -1,2 +1,5 @@
 # ignore react tag sphere as it's really hard to type properly
 /atomic/reactTagSphere/index.tsx
+
+node_modules
+__generated__

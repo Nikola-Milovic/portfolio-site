@@ -4,6 +4,17 @@ export const whileInViewAnim = {
   viewport: { once: true },
 };
 
+export const onHoverAnim = (amount?: number, duration?: number) => {
+  return {
+    whileHover: {
+      scale: amount ?? 1.05,
+      transition: {
+        duration: duration ?? 0.1,
+      },
+    },
+  };
+};
+
 export const staggerAnimParent = (delay?: number, stagger?: number) => {
   return {
     ...whileInViewAnim,

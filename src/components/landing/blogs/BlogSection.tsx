@@ -1,9 +1,13 @@
 import { motion } from 'framer-motion';
+import { FaArrowRight } from 'react-icons/fa';
 
 import {
+  fadeSlideX,
   fadeSlideY,
+  onHoverAnim,
   whileInViewAnim,
 } from '@/components/atomic/animations/animationProps';
+import UnstyledLink from '@/components/atomic/links/UnstyledLink';
 
 import { PostCard } from './PostCard';
 import { BottomBlogsDivider } from '../../atomic/dividers/BlogDividers';
@@ -39,6 +43,17 @@ export const BlogSection = ({ posts }: BlogSectionProps) => {
               ></PostCard>
             ))}
           </ul>
+
+          <UnstyledLink
+            {...whileInViewAnim}
+            {...onHoverAnim(1.03)}
+            {...fadeSlideX(40, undefined, 0.8, 0.2)}
+            href='/projects'
+            className='see-more-button group border-secondary  text-secondary hover:bg-secondary hover:text-primary'
+          >
+            See more
+            <FaArrowRight className='transform transition group-hover:translate-x-2'></FaArrowRight>
+          </UnstyledLink>
         </div>
       </section>
 

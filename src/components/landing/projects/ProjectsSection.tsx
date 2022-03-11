@@ -1,11 +1,14 @@
 import { motion } from 'framer-motion';
+import { FaArrowRight } from 'react-icons/fa';
 
 import {
   fadeIn,
   fadeSlideX,
   fadeSlideY,
+  onHoverAnim,
   whileInViewAnim,
 } from '@/components/atomic/animations/animationProps';
+import UnstyledLink from '@/components/atomic/links/UnstyledLink';
 
 import { ProjectCard } from './ProjectCard';
 import {
@@ -67,6 +70,17 @@ export const ProjectsSection = ({ projects }: ProjectSectionProps) => {
               ></ProjectCard>
             ))}
         </ul>
+
+        <UnstyledLink
+          {...whileInViewAnim}
+          {...onHoverAnim(1.03)}
+          {...fadeSlideX(20, undefined, 0.5, 0.8)}
+          href='/projects'
+          className='see-more-button  group border-primary text-primary  hover:bg-primary hover:text-secondary'
+        >
+          See more
+          <FaArrowRight className='transform transition group-hover:translate-x-2'></FaArrowRight>
+        </UnstyledLink>
       </div>
     </section>
   );

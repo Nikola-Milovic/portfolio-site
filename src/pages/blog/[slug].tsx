@@ -87,7 +87,7 @@ export default function PostPage({ frontmatter, code }: PostPageProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getFiles('projects');
+  const posts = await getFiles('blog');
   return {
     paths: posts.map((p) => ({
       params: {

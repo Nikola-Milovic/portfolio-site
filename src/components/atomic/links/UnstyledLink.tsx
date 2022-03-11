@@ -1,3 +1,4 @@
+import { HTMLMotionProps, motion } from 'framer-motion';
 import Link, { LinkProps } from 'next/link';
 import * as React from 'react';
 
@@ -9,7 +10,8 @@ export type UnstyledLinkProps = {
   openNewTab?: boolean;
   className?: string;
   nextLinkProps?: Omit<LinkProps, 'href'>;
-} & React.ComponentPropsWithRef<'a'>;
+} & HTMLMotionProps<'a'> &
+  React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 const UnstyledLink = React.forwardRef<HTMLAnchorElement, UnstyledLinkProps>(
   ({ children, href, openNewTab, className, nextLinkProps, ...rest }, ref) => {
@@ -20,16 +22,16 @@ const UnstyledLink = React.forwardRef<HTMLAnchorElement, UnstyledLinkProps>(
 
     if (!isNewTab) {
       return (
-        <Link href={href} {...nextLinkProps}>
-          <a ref={ref} {...rest} className={className}>
+        <Link href={href} passHref {...nextLinkProps}>
+          <motion.a ref={ref} {...rest} className={className}>
             {children}
-          </a>
+          </motion.a>
         </Link>
       );
     }
 
     return (
-      <a
+      <motion.a
         ref={ref}
         target='_blank'
         rel='noopener noreferrer'
@@ -38,7 +40,7 @@ const UnstyledLink = React.forwardRef<HTMLAnchorElement, UnstyledLinkProps>(
         className={clsxm('cursor-newtab', className)}
       >
         {children}
-      </a>
+      </motion.a>
     );
   }
 );
