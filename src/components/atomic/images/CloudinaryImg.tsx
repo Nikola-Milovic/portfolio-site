@@ -20,6 +20,7 @@ type CloudinaryImgType = {
     height: number;
   };
   mdx?: boolean;
+  objectFit?: NonNullable<JSX.IntrinsicElements['img']['style']>['objectFit'];
 } & React.ComponentPropsWithoutRef<'figure'>;
 
 export default function CloudinaryImg({
@@ -34,6 +35,7 @@ export default function CloudinaryImg({
   mdx = true,
   style,
   aspect,
+  objectFit = 'cover',
   ...rest
 }: CloudinaryImgType) {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
@@ -105,6 +107,7 @@ export default function CloudinaryImg({
           <Image
             width={width}
             height={height}
+            objectFit={objectFit}
             src={url}
             alt={alt}
             title={title || alt}

@@ -4,7 +4,7 @@ import { FaClock } from 'react-icons/fa';
 
 import { getFileBySlugAndType, getFiles } from '@/lib/mdx/helpers';
 
-import NextImage from '@/components/atomic/images/NextImage';
+import CloudinaryImg from '@/components/atomic/images/CloudinaryImg';
 import CustomLink from '@/components/atomic/links/CustomLink';
 import { Layout } from '@/components/layout/Layout';
 import { useMdxComponent } from '@/components/mdx/MDXComponents';
@@ -43,9 +43,9 @@ export default function PostPage({ frontmatter, code }: PostPageProps) {
       <main>
         <section className='bg-bg py-20'>
           <div className='layout'>
-            <NextImage
+            <CloudinaryImg
               className='w-full'
-              src={frontmatter.displayImage}
+              publicId={frontmatter.displayImage}
               alt={frontmatter.title}
               width={1440}
               height={792}
@@ -76,17 +76,10 @@ export default function PostPage({ frontmatter, code }: PostPageProps) {
               </aside> */}
             </section>
 
-            <div className='mt-10 mb-10 flex flex-col items-start gap-4 border-t border-white pt-8 md:flex-row-reverse md:justify-between'>
-              <CustomLink
-                className='text-white'
-                href={`https:///src/contents/projects/${frontmatter.slug}.mdx`}
-              >
-                Edit this on GitHub
-              </CustomLink>
+            <div className='mt-10 mb-10 flex flex-col items-start gap-4 border-t border-white pt-8'>
               <CustomLink className='text-white' href='/projects'>
                 ← Back to blogs
-              </CustomLink>{' '}
-              */
+              </CustomLink>
             </div>
           </div>
         </section>

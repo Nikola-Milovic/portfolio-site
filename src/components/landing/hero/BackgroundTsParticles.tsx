@@ -1,7 +1,7 @@
 import React from 'react';
 import Particles from 'react-tsparticles';
 
-export const BackgroundParticles = () => {
+const BackgroundParticles = () => {
   return (
     <Particles
       id='tsparticles'
@@ -85,3 +85,5 @@ export const BackgroundParticles = () => {
     />
   );
 };
+
+export default BackgroundParticles;

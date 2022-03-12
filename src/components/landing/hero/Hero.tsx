@@ -1,6 +1,7 @@
+import loadable from '@loadable/component';
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
-import React from 'react';
+import React, { Fragment } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 import Typewriter from 'typewriter-effect';
 
@@ -9,7 +10,10 @@ import {
   staggerAnimParent,
 } from '@/components/atomic/animations/animationProps';
 
-import { BackgroundParticles } from './BackgroundTsParticles';
+const BackgroundParticles = loadable(() => import('./BackgroundTsParticles'), {
+  fallback: <Fragment></Fragment>,
+});
+
 import UnstyledLink from '../../atomic/links/UnstyledLink';
 
 export const Hero = () => {

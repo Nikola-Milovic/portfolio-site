@@ -1,13 +1,20 @@
+import loadable from '@loadable/component';
 import { motion } from 'framer-motion';
+import { Fragment } from 'react';
 
 import {
   fadeSlideX,
   staggerAnimParent,
 } from '@/components/atomic/animations/animationProps';
+import { AboutMeTopDivider } from '@/components/atomic/dividers/AboutMeDividers';
+import { TextSwap } from '@/components/atomic/textTransition';
 
-import { AboutMeTopDivider } from '../../atomic/dividers/AboutMeDividers';
-import TagSphere from '../../atomic/reactTagSphere';
-import { TextSwap } from '../../atomic/textTransition';
+const TagSphere = loadable(
+  () => import('@/components/atomic/reactTagSphere/index'),
+  {
+    fallback: <Fragment></Fragment>,
+  }
+);
 
 export const AboutMe = () => {
   return (

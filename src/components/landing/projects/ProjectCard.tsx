@@ -27,10 +27,11 @@ export const ProjectCard = ({
       }`}
     >
       <CloudinaryImg
-        className='pointer-events-none w-full overflow-hidden rounded-t-md lg:rounded-t-lg'
+        className='pointer-events-none h-full w-full overflow-hidden rounded-t-md lg:rounded-t-lg'
         publicId={project.displayImage}
         alt={'Preview image for project ' + project.name}
         width={1200}
+        objectFit='scale-down'
         height={1200}
         preview={false}
       />
@@ -98,6 +99,7 @@ export const ProjectCard = ({
           </p>
 
           <a
+            aria-label={'More details about ' + project.name}
             href={'/projects/' + project.slug}
             className='group flex cursor-pointer items-center gap-1 font-semibold uppercase text-white hover:scale-105'
           >

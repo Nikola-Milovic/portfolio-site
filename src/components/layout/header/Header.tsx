@@ -1,44 +1,43 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { Squash as Hamburger } from 'hamburger-react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import UnstyledLink from '../../atomic/links/UnstyledLink';
 
 export const Header = () => {
   const [isExpanded, setExpanded] = useState(false);
 
-  const [top, setTop] = useState(true);
-
-  // detect whether user has scrolled the page down by 10px
-  useEffect(() => {
-    const scrollHandler = () => {
-      window.pageYOffset > 10 ? setTop(false) : setTop(true);
-    };
-    window.addEventListener('scroll', scrollHandler);
-    return () => window.removeEventListener('scroll', scrollHandler);
-  }, [top]);
-
   return (
     <header className='fixed inset-0 z-[9999] h-16 w-screen bg-bg-dark md:border-b-0'>
       <div className='header-container relative flex h-full w-full flex-row items-center justify-end  px-6 text-white md:px-10'>
-        <p className='absolute left-1/2 -translate-x-1/2 font-semibold uppercase md:hidden'>
-          Nikola Milovic
-        </p>
-        <div className='md:hidden' onClick={() => setExpanded(!isExpanded)}>
+        <div className='md:hidden' id='mobile-dropdown'>
           <Hamburger size={24} toggled={isExpanded} toggle={setExpanded} />
         </div>
 
         <nav className='desktop-nav'>
-          <UnstyledLink href='/#home' className='nav-links'>
+          <UnstyledLink
+            aria-label='Link leading to homepage'
+            href='/#home'
+            className='nav-links'
+          >
             home
           </UnstyledLink>
-          <UnstyledLink href='/blog' className='nav-links'>
+          <UnstyledLink
+            aria-label='Link leading to blog page'
+            href='/blog'
+            className='nav-links'
+          >
             blog
           </UnstyledLink>
-          <UnstyledLink href='/projects' className='nav-links'>
+          <UnstyledLink
+            aria-label='Link leading to all projects page'
+            href='/projects'
+            className='nav-links'
+          >
             projects
           </UnstyledLink>
           <UnstyledLink
+            aria-label='Link leading to contact information'
             href='#footer'
             className='nav-links nav-links--underline-secondary text-lg font-medium text-secondary'
           >
@@ -53,7 +52,7 @@ export const Header = () => {
             className=' w-full bg-bg-dark'
             initial={{ height: 0 }}
             animate={{
-              height: 'auto',
+              height: 'auleading to',
               transition: { delay: 0.1, duration: 0.4 },
             }}
             exit={{
@@ -97,6 +96,7 @@ export const Header = () => {
                 home
               </UnstyledLink>
               <UnstyledLink
+                aria-label='Link leading to blog page'
                 variants={{
                   expanded: {
                     opacity: 1,
@@ -111,6 +111,7 @@ export const Header = () => {
                 blog
               </UnstyledLink>
               <UnstyledLink
+                aria-label='Link leading to all projects page'
                 variants={{
                   expanded: {
                     opacity: 1,
@@ -125,6 +126,7 @@ export const Header = () => {
                 projects
               </UnstyledLink>
               <UnstyledLink
+                aria-label='Link leading to contact information'
                 variants={{
                   expanded: {
                     opacity: 1,
