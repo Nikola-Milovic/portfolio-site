@@ -37,31 +37,9 @@ module.exports = {
             filter: 'none',
           },
         },
-        projectin: {
-          '0%': {
-            top: '-100%',
-            transform: `scaleY(0.5)`,
-          },
-          '100%': {
-            top: '0',
-            transform: `scaleY(1)`,
-          },
-        },
-        projectout: {
-          '0%': {
-            top: '0',
-            transform: `scaleY(1)`,
-          },
-          '-100%': {
-            top: '-100%',
-            transform: `scaleY(0.2)`,
-          },
-        },
       },
       animation: {
         flicker: 'flicker 3s linear infinite',
-        projectin: 'projectin 0.7s ease-in-out forwards',
-        projectout: 'projectout 0.7s ease-in-out forwards',
       },
     },
   },

@@ -42,7 +42,7 @@ export default function PostPage({ frontmatter, code }: PostPageProps) {
 
       <main>
         <section className='bg-bg py-20'>
-          <div className='layout'>
+          <div className='layout-dense'>
             <CloudinaryImg
               className='w-full'
               publicId={frontmatter.displayImage}
@@ -61,7 +61,7 @@ export default function PostPage({ frontmatter, code }: PostPageProps) {
             <div className='mt-5 w-full border-b border-white pt-4'></div>
 
             <section className='mt-8 text-white'>
-              <article className='mdx projects prose mx-auto w-full transition-colors'>
+              <article className='mdx projects prose w-full transition-colors'>
                 <Component></Component>
               </article>
 

@@ -6,6 +6,7 @@
  * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
  */
 
+import useLoaded from '@/lib/hooks/useLoaded';
 import { getPosts, getProjects } from '@/lib/mdx/helpers';
 
 import { AboutMe } from '@/components/landing/about/Aboutme';
@@ -27,12 +28,13 @@ type HomePageProps = {
 };
 
 export default function HomePage({ projects, posts }: HomePageProps) {
+  const isLoaded = useLoaded();
+
   return (
     <Layout>
       <Seo />
-      {/* <Seo templateTitle='Home' /> */}
       <main>
-        <Hero></Hero>
+        <Hero isLoaded={isLoaded}></Hero>
         <AboutMe></AboutMe>
         <ProjectsSection projects={projects}></ProjectsSection>
         <BlogSection posts={posts}></BlogSection>

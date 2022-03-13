@@ -1,13 +1,6 @@
-import { motion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
+import { InView } from 'react-intersection-observer';
 
-import {
-  fadeSlideX,
-  fadeSlideY,
-  onHoverAnim,
-  staggerAnimParent,
-  whileInViewAnim,
-} from '@/components/atomic/animations/animationProps';
 import UnstyledLink from '@/components/atomic/links/UnstyledLink';
 
 import { PostCard } from './PostCard';
@@ -26,37 +19,32 @@ export const BlogSection = ({ posts }: BlogSectionProps) => {
         <BottomBlogsDivider />
 
         <div className='layout my-10 flex h-full flex-col p-4'>
-          <motion.h1
-            {...whileInViewAnim}
-            {...fadeSlideY(20)}
-            className='section-title mb-10'
-          >
-            Blogs
-          </motion.h1>
+          <InView triggerOnce rootMargin='0px -20%'>
+            <h1 className='section-title mb-10'>Blogs</h1>
+          </InView>
 
-          <motion.ul
-            {...staggerAnimParent(0.4, 0.3)}
-            className='mx-auto mt-4 grid max-w-sm gap-4 sm:mx-0 sm:max-w-none sm:grid-cols-2 lg:grid-cols-3 lg:gap-10'
-          >
-            {posts.map((post) => (
-              <PostCard
-                {...fadeSlideY(20)}
+          <ul className='mx-auto mt-4 grid max-w-sm gap-4 sm:mx-0 sm:max-w-none sm:grid-cols-2 lg:grid-cols-3 lg:gap-10'>
+            {posts.map((post, index) => (
+              <InView
+                delay={index * 0.1}
                 key={post.slug}
-                post={post}
-              ></PostCard>
+                triggerOnce
+                rootMargin='10% 0px'
+              >
+                <PostCard post={post}></PostCard>
+              </InView>
             ))}
-          </motion.ul>
+          </ul>
 
-          <UnstyledLink
-            {...whileInViewAnim}
-            {...onHoverAnim(1.03)}
-            {...fadeSlideX(30, undefined, 0.7, 0.3)}
-            href='/projects'
-            className='see-more-button group border-secondary  text-secondary hover:bg-secondary hover:text-primary'
-          >
-            See more
-            <FaArrowRight className='transform transition group-hover:translate-x-2'></FaArrowRight>
-          </UnstyledLink>
+          <InView triggerOnce rootMargin='0px -20%' delay={100}>
+            <UnstyledLink
+              href='/projects'
+              className='see-more-button group border-secondary text-secondary transition-transform  hover:scale-[1.02] hover:bg-secondary hover:text-primary'
+            >
+              See more
+              <FaArrowRight className='transform transition group-hover:translate-x-2'></FaArrowRight>
+            </UnstyledLink>
+          </InView>
         </div>
       </section>
 

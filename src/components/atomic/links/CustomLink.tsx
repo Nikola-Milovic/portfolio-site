@@ -11,15 +11,13 @@ export default function CustomLink({
     <UnstyledLink
       {...rest}
       className={clsx(
-        'animated-underline custom-link inline-flex items-center font-medium',
-        'focus-visible:ring-primary-300 focus:outline-none focus-visible:ring',
-        'border-dark border-b border-dotted hover:border-black/0',
+        'animated--underline animated--underline-primary custom-link inline-flex items-center font-medium',
+        'focus:outline-none focus-visible:ring focus-visible:ring-primary',
+        'border-dark border-b border-primary',
         className
       )}
     >
-      <span className='dark:from-primary-300 dark:to-primary-400 dark:bg-gradient-to-tr dark:bg-clip-text dark:text-transparent'>
-        {children}
-      </span>
+      <span className=''>{children}</span>
     </UnstyledLink>
   );
 }

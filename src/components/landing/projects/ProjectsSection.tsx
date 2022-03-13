@@ -1,13 +1,6 @@
-import { motion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
+import { InView } from 'react-intersection-observer';
 
-import {
-  fadeSlideX,
-  fadeSlideY,
-  onHoverAnim,
-  staggerAnimParent,
-  whileInViewAnim,
-} from '@/components/atomic/animations/animationProps';
 import UnstyledLink from '@/components/atomic/links/UnstyledLink';
 
 import { ProjectCard } from './ProjectCard';
@@ -32,21 +25,15 @@ export const ProjectsSection = ({ projects }: ProjectSectionProps) => {
       <BottomProjectsDivider />
 
       <div className='layout flex h-full flex-col p-4'>
-        <motion.h1
-          {...whileInViewAnim}
-          {...fadeSlideX(30)}
-          className='section-title mb-10'
-        >
-          Projects
-        </motion.h1>
+        <InView triggerOnce rootMargin='0px -20%'>
+          <h1 className='section-title mb-10'>Projects</h1>
+        </InView>
 
         <ul className='mb-4 flex flex-col items-center md:mb-10'>
           {projects
             .filter((proj) => proj.personal != true)
             .map((proj) => (
               <ProjectCard
-                {...whileInViewAnim}
-                {...fadeSlideX(10, false, 0.7, 0.2)}
                 key={proj.slug}
                 project={proj}
                 isHighlight={true}
@@ -54,31 +41,30 @@ export const ProjectsSection = ({ projects }: ProjectSectionProps) => {
             ))}
         </ul>
 
-        <motion.ul
-          {...staggerAnimParent(0.4, 0.3)}
-          className='mx-auto mt-4 grid w-full max-w-sm gap-4 sm:mx-0 sm:max-w-none sm:grid-cols-2 lg:gap-10'
-        >
+        <ul className='mx-auto mt-4 grid w-full max-w-sm gap-4 sm:mx-0 sm:max-w-none sm:grid-cols-2 lg:gap-10'>
           {projects
             .filter((proj) => proj.personal == true)
-            .map((proj) => (
-              <ProjectCard
-                {...fadeSlideY(20)}
+            .map((proj, index) => (
+              <InView
+                delay={index * 0.1}
                 key={proj.slug}
-                project={proj}
-              ></ProjectCard>
+                triggerOnce
+                rootMargin='10% 0px'
+              >
+                <ProjectCard project={proj}></ProjectCard>
+              </InView>
             ))}
-        </motion.ul>
+        </ul>
 
-        <UnstyledLink
-          {...whileInViewAnim}
-          {...onHoverAnim(1.03)}
-          {...fadeSlideX(30, undefined, 0.7, 0.3)}
-          href='/projects'
-          className='see-more-button group border-primary text-primary  hover:bg-primary hover:text-secondary'
-        >
-          See more
-          <FaArrowRight className='transform transition group-hover:translate-x-2'></FaArrowRight>
-        </UnstyledLink>
+        <InView triggerOnce rootMargin='0px -20%' delay={100}>
+          <UnstyledLink
+            href='/projects'
+            className='see-more-button group border-primary text-primary transition-transform hover:scale-[1.02]  hover:bg-primary hover:text-secondary'
+          >
+            See more
+            <FaArrowRight className='transform transition group-hover:translate-x-2'></FaArrowRight>
+          </UnstyledLink>
+        </InView>
       </div>
     </section>
   );

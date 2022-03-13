@@ -7,7 +7,6 @@ import {
   useRef,
   useState,
 } from 'react';
-import { motion } from 'framer-motion';
 
 type tagSphereProps = {
   texts: (string | ReactNode)[];
@@ -307,8 +306,7 @@ export default function TagSphere(props: any) {
   }, [mouseX, mouseY, lessSpeed, active, items, props.radius]);
 
   return (
-    <motion.div
-      {...props.anim}
+    <div
       className={props.className}
       ref={containerRef}
       onMouseOver={() => {
@@ -339,6 +337,6 @@ export default function TagSphere(props: any) {
       }
     >
       {items.map((item) => item.el)}
-    </motion.div>
+    </div>
   );
 }

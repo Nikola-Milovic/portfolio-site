@@ -67,7 +67,7 @@ export default function SingleProjectPage({
             </div>
 
             <section className='mt-8 text-white'>
-              <article className='mdx projects prose mx-auto w-full transition-colors'>
+              <article className='mdx projects prose w-full transition-colors'>
                 <Component
                   opts={{
                     height: 640,

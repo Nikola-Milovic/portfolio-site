@@ -1,26 +1,27 @@
 //import { FaArrowRight } from 'react-icons/fa';
 
+import clsx from 'clsx';
 import { format } from 'date-fns';
-import { HTMLMotionProps } from 'framer-motion';
-import { motion } from 'framer-motion';
+import { DetailedHTMLProps, LiHTMLAttributes } from 'react';
 import { FaClock } from 'react-icons/fa';
 
-import { onHoverAnim } from '@/components/atomic/animations/animationProps';
 import CloudinaryImg from '@/components/atomic/images/CloudinaryImg';
-
-import UnstyledLink from '../../atomic/links/UnstyledLink';
+import UnstyledLink from '@/components/atomic/links/UnstyledLink';
 
 import { PostFrontMatter } from '@/types/frontmatter';
 type BlogCardProps = {
   post: PostFrontMatter;
-} & HTMLMotionProps<'li'>;
+} & DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>;
 
-export const PostCard = ({ post, ...rest }: BlogCardProps) => {
+export const PostCard = ({ post }: BlogCardProps) => {
   return (
-    <motion.li
-      {...onHoverAnim(1.02, 0.1)}
-      {...rest}
-      className='w-full rounded-md bg-secondary shadow-xl hover:shadow-primary lg:rounded-lg'
+    <li
+      className={clsx(
+        'project-card animate-shadow w-full rounded-md bg-secondary shadow-md lg:rounded-lg',
+        'shadow-xl transition-shadow duration-200 hover:scale-[1.02] hover:shadow-primary lg:rounded-lg',
+        'scale-100 hover:scale-[1.02] active:scale-[0.97] motion-safe:transform-gpu',
+        'motion-reduce:hover:scale-100'
+      )}
     >
       <UnstyledLink
         className='flex h-full flex-col rounded-md'
@@ -48,7 +49,7 @@ export const PostCard = ({ post, ...rest }: BlogCardProps) => {
         </div>
 
         <div className='p-4'>
-          <h4 className='text-white '>{post.title}</h4>
+          <h4 className='mb-2 leading-6 text-white '>{post.title}</h4>
           <div className='flex items-center gap-1'>
             <FaClock className='inline-block text-white' />
             <p className='text-white'>{post.readingTime.text}</p>
@@ -64,6 +65,6 @@ export const PostCard = ({ post, ...rest }: BlogCardProps) => {
           <p className='text-sm text-white'>{post.description}</p>
         </div>
       </UnstyledLink>
-    </motion.li>
+    </li>
   );
 };
