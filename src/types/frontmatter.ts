@@ -7,6 +7,7 @@ export type ProjectFrontMatter = {
   name: string;
   technologies: string[];
   description: string;
+  shortDescription: string;
   publishedAt: string;
   github: string;
   webpage: string | null;

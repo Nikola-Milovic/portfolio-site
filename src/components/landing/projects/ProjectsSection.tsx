@@ -40,23 +40,19 @@ export const ProjectsSection = ({ projects }: ProjectSectionProps) => {
           Projects
         </motion.h1>
 
-        <ul className='flex w-full flex-col'>
+        <ul className='mb-4 flex flex-col items-center md:mb-10'>
           {projects
             .filter((proj) => proj.personal != true)
             .map((proj) => (
               <ProjectCard
                 {...whileInViewAnim}
-                {...fadeSlideX(10, true, 0.7, 0.2)}
+                {...fadeSlideX(10, false, 0.7, 0.2)}
                 key={proj.slug}
                 project={proj}
                 isHighlight={true}
               ></ProjectCard>
             ))}
         </ul>
-
-        <h2 className='mb-2 mt-10 text-center text-white md:mb-5 md:mt-16'>
-          Personal Projects
-        </h2>
 
         <motion.ul
           {...staggerAnimParent(0.4, 0.3)}
