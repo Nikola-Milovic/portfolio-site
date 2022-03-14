@@ -2,13 +2,14 @@
 import {
   createRef,
   CSSProperties,
+  forwardRef,
   ReactNode,
   useEffect,
   useRef,
   useState,
 } from 'react';
 
-type tagSphereProps = {
+type TagSphereProps = {
   texts: (string | ReactNode)[];
   radius?: number;
   maxSpeed: number;
@@ -139,7 +140,7 @@ const createItem = (
   };
 };
 
-const defaultState: tagSphereProps = {
+const defaultState: TagSphereProps = {
   texts: [
     'This',
     'is',
@@ -168,7 +169,7 @@ const defaultState: tagSphereProps = {
   fullHeight: false,
 };
 
-export default function TagSphere(props: any) {
+export const TagSphere = (props: any) => {
   const {
     maxSpeed,
     initialSpeed,
@@ -179,13 +180,9 @@ export default function TagSphere(props: any) {
     fullWidth,
     style,
     useContainerInlineStyles,
-  }: tagSphereProps = { ...defaultState, ...props };
+  }: TagSphereProps = { ...defaultState, ...props };
 
-  let radius = props.radius;
-
-  if (!radius) {
-    radius = texts.length * 15;
-  }
+  let radius = props.radius ?? texts.length * 15;
 
   const depth = 2 * radius;
   const size = 1.5 * radius;
@@ -339,4 +336,6 @@ export default function TagSphere(props: any) {
       {items.map((item) => item.el)}
     </div>
   );
-}
+};
+
+export default TagSphere;

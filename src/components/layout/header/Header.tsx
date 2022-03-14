@@ -49,10 +49,10 @@ export const Header = () => {
       <AnimatePresence>
         {isExpanded && (
           <motion.nav
-            className=' w-full bg-bg-dark'
+            className='w-full bg-bg-dark'
             initial={{ height: 0 }}
             animate={{
-              height: 'auleading to',
+              height: 'auto',
               transition: { delay: 0.1, duration: 0.4 },
             }}
             exit={{
@@ -82,6 +82,7 @@ export const Header = () => {
               }}
             >
               <UnstyledLink
+                onClick={() => setExpanded(false)}
                 variants={{
                   expanded: {
                     opacity: 1,
@@ -96,6 +97,7 @@ export const Header = () => {
                 home
               </UnstyledLink>
               <UnstyledLink
+                onClick={() => setExpanded(false)}
                 aria-label='Link leading to blog page'
                 variants={{
                   expanded: {
@@ -111,6 +113,7 @@ export const Header = () => {
                 blog
               </UnstyledLink>
               <UnstyledLink
+                onClick={() => setExpanded(false)}
                 aria-label='Link leading to all projects page'
                 variants={{
                   expanded: {
@@ -126,6 +129,7 @@ export const Header = () => {
                 projects
               </UnstyledLink>
               <UnstyledLink
+                onClick={() => setExpanded(false)}
                 aria-label='Link leading to contact information'
                 variants={{
                   expanded: {

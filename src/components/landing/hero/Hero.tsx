@@ -25,27 +25,26 @@ export const Hero = ({ isLoaded }: HeroProps) => {
       )}
     >
       <div className='layout flex h-full flex-col items-center justify-center'>
-        <InView triggerOnce>
+        <InView triggerOnce delay={500}>
           {({ ref, inView }) => (
             <>
               <p
-                data-fade='2'
                 ref={ref}
                 className={clsx(
-                  'hero-title my-2 mx-3 text-center font-black uppercase text-white sm:my-3 md:my-5 lg:my-10',
-                  { 'fade-in-start': inView }
+                  'hero-title  my-2 mx-3 text-center font-black uppercase text-white sm:my-3 md:my-5 lg:my-10',
+                  'fade-slide-bottom translate-y-[60px]',
+                  { 'in-view': inView }
                 )}
               >
                 Nikola Milovic
               </p>
 
               <Typewriter
-                data-fade='2'
                 options={{
                   wrapperClassName: clsx(
                     'font-medium uppercase text-primary md:text-semibold md:text-xl',
-                    { 'fade-in-start': inView },
-                    'delay-300'
+                    'fade-slide-bottom',
+                    { 'in-view': inView }
                   ),
                   cursorClassName: 'text-primary',
                   strings: [

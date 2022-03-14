@@ -20,12 +20,15 @@ export const AboutMe = () => {
 
       <div className='layout flex h-full flex-col p-4 md:flex-row'>
         <div className='w-full p-2 text-white md:w-1/3'>
-          <InView triggerOnce threshold={0.2}>
+          <InView triggerOnce threshold={0.3} delay={200}>
             {({ ref, inView }) => {
               return (
                 <div
                   ref={ref}
-                  className={clsx('mb-5 pb-1', inView && 'fade-in-start')}
+                  className={clsx(
+                    'fade-slide-left mb-5 pb-1',
+                    inView && 'in-view'
+                  )}
                 >
                   <h1 data-fade='0' className='section-title '>
                     About me
@@ -36,9 +39,17 @@ export const AboutMe = () => {
             }}
           </InView>
 
-          <InView triggerOnce rootMargin='0px -20%'>
-            {({ ref }) => (
-              <p ref={ref} className='indent-4'>
+          <InView triggerOnce threshold={0.5} delay={450}>
+            {({ ref, inView }) => (
+              <p
+                ref={ref}
+                className={clsx(
+                  'indent-4',
+                  'fade-slide-left ',
+                  '-translate-x-[70%] duration-[1500]',
+                  inView && 'in-view'
+                )}
+              >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
                 congue vitae porttitor ornare sed enim vitae scelerisque
                 sagittis. Tincidunt pellentesque justo tempor, mauris. Pharetra
@@ -53,40 +64,60 @@ export const AboutMe = () => {
             )}
           </InView>
 
-          <InView triggerOnce rootMargin='0px -20%'>
-            <TextSwap
-              text='I am experienced with'
-              interval={300}
-              textClasses='font-semibold text-primary'
-              texts={['Text1', 'Text2', 'text3']}
-            ></TextSwap>
+          <InView triggerOnce threshold={0.3} delay={200}>
+            {({ ref, inView }) => (
+              <TextSwap
+                ref={ref}
+                text='I am experienced with'
+                interval={300}
+                textClasses='font-semibold text-primary'
+                containerClasses={clsx('fade-slide-left', inView && 'in-view')}
+                texts={['Text1', 'Text2', 'text3']}
+              ></TextSwap>
+            )}
           </InView>
         </div>
 
-        <InView className='m-auto text-white' triggerOnce rootMargin='0px 20%'>
-          <TagSphere
-            texts={[
-              'This',
-              'is',
-              'TagSphere.',
-              'Do',
-              'you',
-              'like',
-              'like',
-              'like',
-              'like',
-              'like',
-              'like',
-              'it?',
-              'Glad',
-              'to',
-              'see',
-              'you',
-            ]}
-            keepRollingAfterMouseOut={true}
-            maxSpeed={10}
-            initialSpeed={5}
-          ></TagSphere>
+        <InView
+          triggerOnce
+          className='m-auto w-full'
+          threshold={0.3}
+          delay={200}
+        >
+          {({ ref, inView }) => (
+            <div
+              className={clsx(
+                'text-white md:m-auto',
+                'fade-slide-right',
+                inView && 'in-view'
+              )}
+              ref={ref}
+            >
+              <TagSphere
+                texts={[
+                  'This',
+                  'is',
+                  'TagSphere.',
+                  'Do',
+                  'you',
+                  'like',
+                  'like',
+                  'like',
+                  'like',
+                  'like',
+                  'like',
+                  'it?',
+                  'Glad',
+                  'to',
+                  'see',
+                  'you',
+                ]}
+                keepRollingAfterMouseOut={true}
+                maxSpeed={10}
+                initialSpeed={5}
+              ></TagSphere>
+            </div>
+          )}
         </InView>
       </div>
     </section>
