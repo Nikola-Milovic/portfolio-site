@@ -1,5 +1,6 @@
 import { getProjects } from '@/lib/mdx/helpers';
 
+import { ProjectPageDivider } from '@/components/atomic/dividers/ProjectPageDivider';
 import { ProjectCard } from '@/components/landing/projects/ProjectCard';
 import { Layout } from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
@@ -16,10 +17,10 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
       {/* TODO seo */}
       <Seo />
       {/* <Seo templateTitle='Home' /> */}
-      <main className='flex h-full w-full bg-bg py-20'>
+      <main className='relative flex h-full w-full bg-secondary py-20'>
         <div className='layout mb-20'>
           <h1 className='text-5xl font-bold text-white'>Projects</h1>
-          <h3 className='my-2 text-lg font-medium text-white'>
+          <h3 className='mb-10 -mt-2 text-lg font-medium text-white'>
             A collection of my commercial and personal projects
           </h3>
 
@@ -29,7 +30,10 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
             ))}
           </ul>
         </div>
+        <ProjectPageDivider></ProjectPageDivider>
       </main>
+
+      <div id='seperator' className='h-[12rem] w-full'></div>
     </Layout>
   );
 }

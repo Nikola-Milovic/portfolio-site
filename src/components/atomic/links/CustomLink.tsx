@@ -11,7 +11,7 @@ export default function CustomLink({
     <UnstyledLink
       {...rest}
       className={clsx(
-        'animated--underline animated--underline-primary custom-link inline-flex items-center font-medium',
+        'custom-link inline-flex items-center font-medium',
         'focus:outline-none focus-visible:ring focus-visible:ring-primary',
         'border-dark border-b border-primary',
         className

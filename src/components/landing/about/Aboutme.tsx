@@ -2,6 +2,7 @@ import loadable from '@loadable/component';
 import clsx from 'clsx';
 import { Fragment } from 'react';
 import { InView } from 'react-intersection-observer';
+import { twMerge } from 'tailwind-merge';
 
 import { AboutMeTopDivider } from '@/components/atomic/dividers/AboutMeDividers';
 import { TextSwap } from '@/components/atomic/textTransition';
@@ -19,21 +20,26 @@ export const AboutMe = () => {
       <AboutMeTopDivider />
 
       <div className='layout flex h-full flex-col p-4 md:flex-row'>
-        <div className='mx-auto flex w-full flex-col items-center p-2 text-white md:m-0 md:w-1/3 md:items-start'>
+        <div className='mx-auto flex w-full flex-col items-center p-2 text-white md:m-0 md:w-1/3 md:items-start lg:mr-10'>
           <InView triggerOnce threshold={0.3} delay={200}>
             {({ ref, inView }) => {
               return (
                 <div
                   ref={ref}
                   className={clsx(
-                    'fade-slide-left mb-5 mr-auto pb-1',
+                    'fade-slide-left relative mb-5 mr-auto pb-1 sm:mx-auto md:mx-0',
                     inView && 'in-view'
                   )}
                 >
-                  <h1 data-fade='0' className='section-title '>
+                  <h1
+                    className={twMerge(
+                      'section-title',
+                      'mb-0 md:text-4xl lg:text-5xl'
+                    )}
+                  >
                     About me
                   </h1>
-                  <div className='-mr-2 w-20 border-b-4 border-primary'></div>
+                  <div className='-mr-2 w-[6rem] border-b-4 border-primary'></div>
                 </div>
               );
             }}
