@@ -19,14 +19,14 @@ export const AboutMe = () => {
       <AboutMeTopDivider />
 
       <div className='layout flex h-full flex-col p-4 md:flex-row'>
-        <div className='w-full p-2 text-white md:w-1/3'>
+        <div className='mx-auto flex w-full flex-col items-center p-2 text-white md:m-0 md:w-1/3 md:items-start'>
           <InView triggerOnce threshold={0.3} delay={200}>
             {({ ref, inView }) => {
               return (
                 <div
                   ref={ref}
                   className={clsx(
-                    'fade-slide-left mb-5 pb-1',
+                    'fade-slide-left mb-5 mr-auto pb-1',
                     inView && 'in-view'
                   )}
                 >
@@ -44,7 +44,7 @@ export const AboutMe = () => {
               <p
                 ref={ref}
                 className={clsx(
-                  'indent-4',
+                  'max-w-[18rem]  sm:max-w-[22rem] md:max-w-none',
                   'fade-slide-left ',
                   '-translate-x-[70%] duration-[1500]',
                   inView && 'in-view'
@@ -64,7 +64,7 @@ export const AboutMe = () => {
             )}
           </InView>
 
-          <InView triggerOnce threshold={0.3} delay={200}>
+          <InView triggerOnce threshold={0.8} delay={250}>
             {({ ref, inView }) => (
               <TextSwap
                 ref={ref}
@@ -87,7 +87,7 @@ export const AboutMe = () => {
           {({ ref, inView }) => (
             <div
               className={clsx(
-                'text-white md:m-auto',
+                'text-white sm:m-auto',
                 'fade-slide-right',
                 inView && 'in-view'
               )}

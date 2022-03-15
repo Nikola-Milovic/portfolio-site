@@ -1,11 +1,13 @@
 import { ReadTimeResults } from 'reading-time';
 
+import { TechListType } from '@/components/atomic/TechnologyIcons';
+
 export type ContentType = 'blog' | 'projects';
 
 export type ProjectFrontMatter = {
   slug: string;
   name: string;
-  technologies: string[];
+  technologies: TechListType[];
   description: string;
   shortDescription: string;
   publishedAt: string;

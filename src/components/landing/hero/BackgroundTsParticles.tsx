@@ -5,11 +5,10 @@ const BackgroundParticles = () => {
   return (
     <Particles
       id='tsparticles'
-      width='100%'
-      height='100%'
+      style={{ maxWidth: 'none' }}
       className='particles-container'
       options={{
-        fullScreen: true,
+        fullScreen: false,
         background: {
           color: {
             value: '#0B0C10',

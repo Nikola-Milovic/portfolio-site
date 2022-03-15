@@ -17,7 +17,7 @@ export default function ProjectsPage({ projects }: ProjectsPageProps) {
       <Seo />
       {/* <Seo templateTitle='Home' /> */}
       <main className='flex h-full w-full bg-bg py-20'>
-        <div className='layout my-20'>
+        <div className='layout mb-20'>
           <h1 className='text-5xl font-bold text-white'>Projects</h1>
           <h3 className='my-2 text-lg font-medium text-white'>
             A collection of my commercial and personal projects

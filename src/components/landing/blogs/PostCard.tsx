@@ -3,7 +3,6 @@
 import { format } from 'date-fns';
 import { DetailedHTMLProps, LiHTMLAttributes } from 'react';
 import { FaClock } from 'react-icons/fa';
-import { InView } from 'react-intersection-observer';
 
 import clsxm from '@/lib/clsxm';
 
@@ -18,60 +17,53 @@ type BlogCardProps = {
 
 export const PostCard = ({ post }: BlogCardProps) => {
   return (
-    <InView triggerOnce threshold={0.3}>
-      {({ ref, inView }) => (
-        <li
-          ref={ref}
-          className={clsxm(
-            'post-card rounded-md bg-secondary shadow-md lg:rounded-lg',
-            'fade-slide-bottom',
-            { 'in-view': inView }
-          )}
-        >
-          <UnstyledLink
-            className='flex h-full flex-col rounded-md'
-            href={`/blog/${post.slug}`}
-          >
-            <div className='relative'>
-              <CloudinaryImg
-                className='pointer-events-none w-full overflow-hidden rounded-t-md lg:rounded-t-lg'
-                publicId={post.displayImage}
-                alt={'Image preview for post titled' + post.title}
-                width={460}
-                height={(460 * 3) / 5}
-              />
-              <div className='absolute bottom-0 mt-2 flex w-full flex-wrap justify-end gap-y-1 gap-x-2 px-4 py-2 text-sm text-white'>
-                {post.keywords.map((keyword) => (
-                  <div
-                    tabIndex={-1}
-                    className='md:text-md rounded-md bg-green px-2 py-1 text-sm text-white shadow-md lg:text-sm lg:font-medium '
-                    key={keyword}
-                  >
-                    {keyword}
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className='p-4'>
-              <h4 className='mb-2 mt-0 leading-6 text-white'>{post.title}</h4>
-              <div className='flex items-center gap-1'>
-                <FaClock className='inline-block text-white' />
-                <p className='text-white'>{post.readingTime.text}</p>
-              </div>
-              <p className='my-2 text-sm text-white '>
-                <span className='font-bold text-white '>
-                  {format(
-                    new Date(post.lastUpdated ?? post.publishedAt),
-                    'MMMM dd, yyyy'
-                  )}
-                </span>
-              </p>
-              <p className='text-sm text-white'>{post.description}</p>
-            </div>
-          </UnstyledLink>
-        </li>
+    <li
+      className={clsxm(
+        'post-card rounded-md bg-secondary shadow-md lg:rounded-lg'
       )}
-    </InView>
+    >
+      <UnstyledLink
+        className='flex h-full flex-col rounded-md'
+        href={`/blog/${post.slug}`}
+      >
+        <div className='relative'>
+          <CloudinaryImg
+            className='pointer-events-none w-full overflow-hidden rounded-t-md lg:rounded-t-lg'
+            publicId={post.displayImage}
+            alt={'Image preview for post titled' + post.title}
+            width={460}
+            height={(460 * 3) / 5}
+          />
+          <div className='absolute bottom-0 mt-2 flex w-full flex-wrap justify-end gap-y-1 gap-x-2 px-4 py-2 text-sm text-white'>
+            {post.keywords.map((keyword) => (
+              <div
+                tabIndex={-1}
+                className='md:text-md rounded-md bg-green px-2 py-1 text-sm text-white shadow-md lg:text-sm lg:font-medium '
+                key={keyword}
+              >
+                {keyword}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className='p-4'>
+          <h4 className='mb-2 mt-0 leading-6 text-white'>{post.title}</h4>
+          <div className='flex items-center gap-1'>
+            <FaClock className='inline-block text-white' />
+            <p className='text-white'>{post.readingTime.text}</p>
+          </div>
+          <p className='my-2 text-sm text-white '>
+            <span className='font-bold text-white '>
+              {format(
+                new Date(post.lastUpdated ?? post.publishedAt),
+                'MMMM dd, yyyy'
+              )}
+            </span>
+          </p>
+          <p className='text-sm text-white'>{post.description}</p>
+        </div>
+      </UnstyledLink>
+    </li>
   );
 };

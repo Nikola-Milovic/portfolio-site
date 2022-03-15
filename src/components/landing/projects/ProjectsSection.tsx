@@ -28,57 +28,78 @@ export const ProjectsSection = ({ projects }: ProjectSectionProps) => {
       <BottomProjectsDivider />
 
       <div className='layout flex h-full flex-col p-4'>
-        <InView triggerOnce threshold={0.3} delay={200}>
+        <InView triggerOnce threshold={0.8} delay={200}>
           {({ ref, inView }) => (
-            <h1
-              ref={ref}
-              data-fade='0'
-              className={clsxm(
-                'section-title mb-10 ',
-                'fade-slide-left',
-                '-translate-x-[50%] delay-150 duration-700',
-                inView && 'in-view'
-              )}
-            >
-              Projects
-            </h1>
+            <>
+              <h1
+                ref={ref}
+                data-fade='0'
+                className={clsxm(
+                  'section-title mb-10 ',
+                  'fade-slide-left',
+                  '-translate-x-[50%] delay-150 duration-700',
+                  inView && 'in-view'
+                )}
+              >
+                Projects
+              </h1>
+
+              <ul
+                className={clsxm(
+                  'mb-4 flex flex-col items-center md:mb-10',
+                  'fade-slide-left',
+                  '-translate-x-[30%]',
+                  'delay-500 duration-700',
+                  inView && 'in-view'
+                )}
+              >
+                {projects
+                  .filter((proj) => proj.personal != true)
+                  .map((proj) => (
+                    <ProjectCard
+                      key={proj.slug}
+                      project={proj}
+                      isHighlight={true}
+                    ></ProjectCard>
+                  ))}
+              </ul>
+            </>
           )}
         </InView>
 
-        <ul className='mb-4 flex flex-col items-center md:mb-10'>
-          {projects
-            .filter((proj) => proj.personal != true)
-            .map((proj) => (
-              <ProjectCard
-                key={proj.slug}
-                project={proj}
-                isHighlight={true}
-              ></ProjectCard>
-            ))}
-        </ul>
+        <InView triggerOnce threshold={0.15} delay={200}>
+          {({ ref, inView }) => (
+            <ul
+              ref={ref}
+              className={clsxm(
+                'mx-auto mt-4 grid w-full max-w-sm gap-4 sm:mx-0 sm:max-w-none sm:grid-cols-2 lg:gap-10',
+                'fade-slide-bottom',
+                { 'in-view': inView }
+              )}
+            >
+              {projects
+                .filter((proj) => proj.personal == true)
+                .map((proj) => (
+                  <ProjectCard key={proj.slug} project={proj}></ProjectCard>
+                ))}
+            </ul>
+          )}
+        </InView>
 
-        <ul className='mx-auto mt-4 grid w-full max-w-sm gap-4 sm:mx-0 sm:max-w-none sm:grid-cols-2 lg:gap-10'>
-          {projects
-            .filter((proj) => proj.personal == true)
-            .map((proj) => (
-              <ProjectCard key={proj.slug} project={proj}></ProjectCard>
-            ))}
-        </ul>
-
-        <InView triggerOnce delay={450} threshold={1}>
+        <InView triggerOnce delay={250} threshold={0.8}>
           {({ ref, inView }) => (
             <UnstyledLink
               ref={ref}
               href='/projects'
               className={clsx(
                 'see-more-button group border-primary text-primary',
-                'transform transition hover:scale-[1.02]  hover:bg-primary hover:text-secondary',
+                'hover:bg-primary hover:text-secondary',
                 'fade-slide-left',
                 inView && 'in-view'
               )}
             >
               See more
-              <FaArrowRight className='transform transition group-hover:translate-x-2'></FaArrowRight>
+              <FaArrowRight className='transition-transform group-hover:translate-x-2'></FaArrowRight>
             </UnstyledLink>
           )}
         </InView>
