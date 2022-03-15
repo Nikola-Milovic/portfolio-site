@@ -94,6 +94,7 @@ export const AboutMe = () => {
             <div
               className={clsx(
                 'text-white sm:m-auto',
+                'pointer-events-none md:pointer-events-auto',
                 'fade-slide-right',
                 inView && 'in-view'
               )}

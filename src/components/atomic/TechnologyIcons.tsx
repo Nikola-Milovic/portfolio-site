@@ -37,11 +37,11 @@ export const TechnologyIcons = ({
         const current = techList[tech];
 
         return (
-          <Tooltip key={current.name} content={<p>{current.name}</p>}>
-            <li className='text-xl text-white hover:scale-105'>
+          <li key={current.name} className='text-xl text-white hover:scale-105'>
+            <Tooltip content={<p>{current.name}</p>}>
               <current.icon />
-            </li>
-          </Tooltip>
+            </Tooltip>
+          </li>
         );
       })}
     </ul>

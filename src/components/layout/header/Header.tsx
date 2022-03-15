@@ -10,8 +10,13 @@ export const Header = () => {
   return (
     <header className='fixed inset-0 z-[9999] h-16 w-screen bg-bg-dark md:border-b-0'>
       <div className='header-container relative flex h-full w-full flex-row items-center justify-end  px-6 text-white md:px-10'>
-        <div className='md:hidden' aria-label='Open mobile navigation menu'>
-          <Hamburger size={24} toggled={isExpanded} toggle={setExpanded} />
+        <div className='md:hidden' role='button'>
+          <Hamburger
+            aria-label='Open mobile navigation menu'
+            size={24}
+            toggled={isExpanded}
+            toggle={setExpanded}
+          />
         </div>
 
         <nav className='desktop-nav'>

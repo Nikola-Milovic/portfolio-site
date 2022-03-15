@@ -48,7 +48,7 @@ export const PostCard = ({ post }: BlogCardProps) => {
         </div>
 
         <div className='p-4'>
-          <h4 className='mb-2 mt-0 leading-6 text-white'>{post.title}</h4>
+          <h3 className='mb-2 mt-0 leading-6 text-white'>{post.title}</h3>
           <div className='flex items-center gap-1'>
             <FaClock className='inline-block text-white' />
             <p className='text-white'>{post.readingTime.text}</p>
