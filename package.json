@@ -17,11 +17,14 @@
     "release": "standard-version",
     "push-release": "git push --follow-tags origin main",
     "postbuild": "next-sitemap",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "analyze": "cross-env ANALYZE=true next build",
+    "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
+    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"
   },
   "dependencies": {
-    "@loadable/component": "^5.15.2",
     "@mdx-js/loader": "^2.0.0",
+    "@next/bundle-analyzer": "^12.1.0",
     "@next/mdx": "^12.1.0",
     "@types/mdx": "^2.0.1",
     "cloudinary-build-url": "0.2.4",
@@ -63,6 +66,7 @@
     "@typescript-eslint/parser": "4.33.0",
     "autoprefixer": "10.4.2",
     "babel-jest": "27.5.1",
+    "cross-env": "^7.0.3",
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.4",
     "eslint-config-prettier": "8.3.0",

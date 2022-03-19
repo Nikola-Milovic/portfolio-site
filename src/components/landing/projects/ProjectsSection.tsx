@@ -18,7 +18,7 @@ type ProjectSectionProps = {
   projects: ProjectFrontMatter[];
 };
 
-export const ProjectsSection = ({ projects }: ProjectSectionProps) => {
+const ProjectsSection = ({ projects }: ProjectSectionProps) => {
   return (
     <section
       id='projects'
@@ -90,6 +90,7 @@ export const ProjectsSection = ({ projects }: ProjectSectionProps) => {
           {({ ref, inView }) => (
             <UnstyledLink
               ref={ref}
+              aria-label='Go to page with all of my projects'
               href='/projects'
               className={clsx(
                 'see-more-button group border-primary text-primary',
@@ -107,3 +108,5 @@ export const ProjectsSection = ({ projects }: ProjectSectionProps) => {
     </section>
   );
 };
+
+export default ProjectsSection;

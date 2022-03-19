@@ -15,7 +15,7 @@ type BlogSectionProps = {
   posts: PostFrontMatter[];
 };
 
-export const BlogSection = ({ posts }: BlogSectionProps) => {
+const BlogSection = ({ posts }: BlogSectionProps) => {
   return (
     <>
       <section id='blogs' className='md:min-h-700 relative w-full bg-bg py-20'>
@@ -53,7 +53,8 @@ export const BlogSection = ({ posts }: BlogSectionProps) => {
           <InView triggerOnce delay={250} threshold={0.8}>
             {({ ref, inView }) => (
               <UnstyledLink
-                href='/projects'
+                href='/blog'
+                aria-label='Go to page with all blog posts'
                 ref={ref}
                 className={clsx(
                   'see-more-button group border-secondary text-secondary transition-transform hover:bg-secondary hover:text-primary',
@@ -73,3 +74,5 @@ export const BlogSection = ({ posts }: BlogSectionProps) => {
     </>
   );
 };
+
+export default BlogSection;

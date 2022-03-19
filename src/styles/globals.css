@@ -319,15 +319,15 @@ body {
 }
 
 .fade-slide-left {
-  @apply fade-slide -translate-x-[20%];
+  @apply fade-slide -translate-x-[10%];
 }
 
 .fade-slide-right {
-  @apply fade-slide translate-x-[20%];
+  @apply fade-slide translate-x-[10%];
 }
 
 .fade-slide-bottom {
-  @apply fade-slide translate-y-[20%];
+  @apply fade-slide translate-y-[10%];
 }
 
 .in-view {

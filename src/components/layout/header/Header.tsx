@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import { Squash as Hamburger } from 'hamburger-react';
 import { useState } from 'react';
 
@@ -53,7 +53,7 @@ export const Header = () => {
 
       <AnimatePresence>
         {isExpanded && (
-          <motion.nav
+          <m.nav
             className='w-full bg-bg-dark'
             initial={{ height: 0 }}
             animate={{
@@ -65,7 +65,7 @@ export const Header = () => {
               transition: { delay: 0.3, duration: 0.4 },
             }}
           >
-            <motion.div
+            <m.div
               className='z-10 flex flex-col items-center justify-between space-y-4 pt-3 pb-6 text-white md:hidden'
               initial='collapsed'
               animate='expanded'
@@ -149,8 +149,8 @@ export const Header = () => {
               >
                 Contact
               </UnstyledLink>
-            </motion.div>
-          </motion.nav>
+            </m.div>
+          </m.nav>
         )}
       </AnimatePresence>
     </header>

@@ -1,3 +1,4 @@
+import bundleAnalyzer from '@next/bundle-analyzer';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
 
@@ -17,7 +18,6 @@ const config = {
     ],
   },
 
-  // SVGR
   webpack: (config, options) => {
     config.module.rules.push({
       test: /\.svg$/i,
@@ -51,4 +51,6 @@ const config = {
   },
 };
 
-export default config;
+export default bundleAnalyzer({ enabled: process.env.ANALYZE === 'true' })(
+  config
+);

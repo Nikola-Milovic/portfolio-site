@@ -1,6 +1,7 @@
 import React from 'react';
 import Particles from 'react-tsparticles';
 
+//TODO update to 2.0 and do codesplitting to reduce bundle size
 const BackgroundParticles = () => {
   return (
     <Particles

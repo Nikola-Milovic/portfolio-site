@@ -1,12 +1,10 @@
-import loadable from '@loadable/component';
 import clsx from 'clsx';
-import React, { Fragment } from 'react';
+import dynamic from 'next/dynamic';
+import React from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 import Typewriter from 'typewriter-effect';
 
-const BackgroundParticles = loadable(() => import('./BackgroundTsParticles'), {
-  fallback: <Fragment></Fragment>,
-});
+const BackgroundParticles = dynamic(() => import('./BackgroundTsParticles'));
 
 import UnstyledLink from '../../atomic/links/UnstyledLink';
 

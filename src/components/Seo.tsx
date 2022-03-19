@@ -100,7 +100,7 @@ type Favicons = {
   type?: string;
 };
 
-// TODO  https://www.favicon-generator.org/
+// https://www.favicon-generator.org/
 const favicons: Array<Favicons> = [
   {
     rel: 'apple-touch-icon',

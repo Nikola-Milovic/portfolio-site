@@ -1,20 +1,12 @@
-import loadable from '@loadable/component';
 import clsx from 'clsx';
-import { Fragment } from 'react';
 import { InView } from 'react-intersection-observer';
 import { twMerge } from 'tailwind-merge';
 
 import { AboutMeTopDivider } from '@/components/atomic/dividers/AboutMeDividers';
+import TagSphere from '@/components/atomic/reactTagSphere';
 import { TextSwap } from '@/components/atomic/textTransition';
 
-const TagSphere = loadable(
-  () => import('@/components/atomic/reactTagSphere/index'),
-  {
-    fallback: <Fragment></Fragment>,
-  }
-);
-
-export const AboutMe = () => {
+const AboutMe = () => {
   return (
     <section id='aboutme' className='relative w-full bg-bg py-10 lg:py-20'>
       <AboutMeTopDivider />
@@ -130,3 +122,5 @@ export const AboutMe = () => {
     </section>
   );
 };
+
+export default AboutMe;

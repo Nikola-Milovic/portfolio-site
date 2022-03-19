@@ -6,15 +6,22 @@
  * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
  */
 
+import dynamic from 'next/dynamic';
+
 import useLoaded from '@/lib/hooks/useLoaded';
 import { getPosts, getProjects } from '@/lib/mdx/helpers';
 
-import { AboutMe } from '@/components/landing/about/Aboutme';
-import { BlogSection } from '@/components/landing/blogs/BlogSection';
 import { Hero } from '@/components/landing/hero/Hero';
-import { ProjectsSection } from '@/components/landing/projects/ProjectsSection';
 import { Layout } from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
+
+const AboutMe = dynamic(() => import('@/components/landing/about/Aboutme'));
+const ProjectsSection = dynamic(
+  () => import('@/components/landing/projects/ProjectsSection')
+);
+const BlogSection = dynamic(
+  () => import('@/components/landing/blogs/BlogSection')
+);
 
 import { PostFrontMatter, ProjectFrontMatter } from '@/types/frontmatter';
 
