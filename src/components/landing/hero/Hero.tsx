@@ -32,7 +32,7 @@ export const Hero = ({ isLoaded }: HeroProps) => {
               'font-medium uppercase text-primary md:text-semibold md:text-xl',
 
             cursorClassName: 'text-primary',
-            strings: [`I'm a Full-stack Developer`, `I'm an avid programmer`],
+            strings: [`Placeholder text`],
             autoStart: true,
             loop: true,
             delay: 120,

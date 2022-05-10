@@ -4,12 +4,18 @@ import { useState } from 'react';
 
 import UnstyledLink from '../../atomic/links/UnstyledLink';
 
+import Logo from '~/svg/logo.svg';
+
 export const Header = () => {
   const [isExpanded, setExpanded] = useState(false);
 
   return (
     <header className='fixed inset-0 z-[9999] h-16 w-screen bg-bg-dark md:border-b-0'>
-      <div className='header-container relative flex h-full w-full flex-row items-center justify-end  px-6 text-white md:px-10'>
+      <div className='header-container relative flex h-full w-full flex-row items-center  justify-between px-6 text-white md:px-10'>
+        <UnstyledLink aria-label='Logo that leads to home page' href='/#home'>
+          <Logo className='h-16 w-16 cursor-pointer'></Logo>
+        </UnstyledLink>
+
         <div className='md:hidden' role='button'>
           <Hamburger
             aria-label='Open mobile navigation menu'

@@ -4,6 +4,7 @@ import { FooterTopDivider } from '../../atomic/dividers/FooterDividers';
 import { SocialIcon } from '../../atomic/social/SocialIcon';
 
 export const Footer = () => {
+  //TODO footer is not at the bottom of the page
   return (
     <footer
       id='footer'
@@ -18,7 +19,7 @@ export const Footer = () => {
             <div className='-mr-2 w-20 border-b-4 border-primary'></div>
           </div>
           <div className='ml-5 flex flex-col gap-4'>
-            <p className='-ml-2 font-semibold'>Can&apos;t get enough of me?</p>
+            <p className='-ml-2 font-semibold'>Reach out to me at</p>
             <SocialIcon
               icon={FaGithub}
               text='github/Nikola-Milovic'
@@ -26,8 +27,8 @@ export const Footer = () => {
             ></SocialIcon>
             <SocialIcon
               icon={FaTwitter}
-              text='@NikolaMilovic5'
-              url='https://twitter.com/NikolaMilovic5'
+              text='twitter'
+              url='https://twitter.com/'
             ></SocialIcon>
           </div>
         </div>
